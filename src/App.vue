@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <m-header></m-header>
+    <IHeader></IHeader>
     <router-view/>
+    <IFooter></IFooter>
+    <Fix></Fix>
   </div>
 </template>
 
 <script>
-  import MHeader from '@/components/header/header'
+  import IHeader from '@/components/iHeader/iHeader'
+  import IFooter from '@/components/ifooter/ifooter'
+  import Fix from '@/components/fix/fix'
 
   export default {
     name: 'app',
     components: {
-      MHeader
+      IHeader,
+      IFooter,
+      Fix
     }
   }
 </script>
