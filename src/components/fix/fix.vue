@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="goTop icon-chevron-up" v-show="isGoTop"></div>
+    <div class="goTop icon-chevron-up" @click='goTop()' v-show='isShow'></div>
   </div>
 </template>
 
@@ -37,21 +37,44 @@
         showChat: false
       }
     },
-    beforeMount: function () {
-      console.group('beforeMount 挂载前状态===============》');
-      console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
-      console.log(this.$el);
-      console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
-      console.log("%c%s", "color:red","message: " + this.message); //已被初始化
-    },
-    computed: {
-      isGoTop: function () {
-        if (document.body.scrollTop > 0) {
-          return true
-        } else {
-          return false
+    methods: {
+      addhoverClass (e) {
+        if (e.type === 'mouseover') {
+          this.$el.classList.add('hover')
+        } else if (e.type === 'mouseout') {
+          this.$el.classList.remove('hover')
         }
+      },
+      showIcon () {
+        if (this.target.scrollTop > 100) {
+          this.isShow = true
+          this.$el.addEventListener('mouseover', this.addhoverClass)
+          this.$el.addEventListener('mouseout', this.addhoverClass)
+        } else if (this.target.scrollTop < 100) {
+          this.isShow = false
+        }
+      },
+      getTop () {
+        let timer = setInterval(() => {
+          let top = this.target.scrollTop
+          let speed = Math.ceil(top / 5)
+          this.target.scrollTop = top - speed
+          if (top === 0) {
+            clearInterval(timer)
+          }
+        }, 20)
       }
+    },
+    mounted () {
+      if (this.scrollmyself) {
+        this.target = this.$el.parentNode
+      } else {
+        this.target = document.body
+      }
+      this.target.addEventListener('scroll', this.showIcon)
+    },
+    beforeDestroy () {
+      this.target.removeEventListener('scroll', this.showIcon)
     }
   }
 </script>
