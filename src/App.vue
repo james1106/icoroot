@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <IHeader></IHeader>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <IFooter></IFooter>
     <Fix></Fix>
   </div>
@@ -29,5 +31,6 @@
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   background-color: #edeeef;
+  font-size: 14px;
 }
 </style>

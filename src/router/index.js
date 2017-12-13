@@ -1,33 +1,51 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import IHeader from '@/components/iHeader/iHeader'
-import IFooter from '@/components/ifooter/ifooter'
-import Fix from '@/components/fix/fix'
+
+import Detail from '@/components/detail/detail'
 import Homepage from '@/components/homepage/homepage'
+import Calendar from '@/components/calendar/calendar'
+import Launch from '@/components/launch/launch'
+import Begin from '@/components/calendar/begin/begin'
+import Doing from '@/components/calendar/doing/doing'
+import Ended from '@/components/calendar/ended/ended'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/iHeader',
-      name: 'iheader',
-      component: IHeader
-    },
-    {
-      path: '/ifooter',
-      name: 'ifooter',
-      component: IFooter
-    },
-    {
-      path: '/',
+      path: '/homepage',
       name: 'homepage',
       component: Homepage
     },
     {
-      path: '/fix',
-      name: 'fix',
-      component: Fix
+      path: '/detail',
+      name: 'detail',
+      component: Detail
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: Calendar,
+      children: [
+        {
+          path: '/begin',
+          component: Begin
+        },
+        {
+          path: '/ended',
+          component: Ended
+        },
+        {
+          path: '/doing',
+          component: Doing
+        }
+      ]
+    },
+    {
+      path: '/launch',
+      name: 'launch',
+      component: Launch
     }
   ]
 })
