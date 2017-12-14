@@ -1,6 +1,6 @@
 <template>
   <b-container fluid class="container-fluid" id="box-bige">
-    <b-container class="container">
+    <b-container>
       <b-row align-h="center" class="box-row">
         <b-col md="9" sm="12" class="col-item">
           <b-carousel id="carousel1"
@@ -278,11 +278,19 @@
           </div>
         </b-col>
       </b-row>
+      <b-container>
+        <cal-list></cal-list>
+      </b-container>
     </b-container>
   </b-container>
 </template>
 <script>
+  import CalendarList from '@/components/calendarList/calendarList.vue'
+
   export default {
+    components: {
+      calList: CalendarList
+    },
     data () {
       return {
         slide: 0,

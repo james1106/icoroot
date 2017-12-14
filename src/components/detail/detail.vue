@@ -1,62 +1,60 @@
 <template>
   <div class="box-bige">
-    <div class="container-fluid title-box">
-      <b-container>
-        <b-row>
-          <b-col sm="9" cols="12" class="box-sm">
-            <div class="box-sm-top">
-              <div class="sm-img">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png" alt="" src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png">
-              </div>
-              <div class="sm-neirong">
-                Genaro Network
-              </div>
-              <div id="topContainer">
-                <div class="title-nav" id="topStickyNav">
-                  <ul class="box-sm-bottom">
-                    <li><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
-                    </li>
-                    <li><a href="#" class="jump" jump="jump2">市场分析</a></li>
-                    <li><a href="#" class="jump" jump="jump3">团队分析</a></li>
-                    <li><a href="#" class="jump" jump="jump4">技术分析</a></li>
-                    <li><a href="#" class="jump" jump="jump5">资金监管分析</a></li>
-                    <li><a href="#" class="jump" jump="jump6">盈利模式分析</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </b-col>
-          <b-col sm="3" cols="12" right class="box-rating">
-            <div class="sm-right font2" id="background-image" style="display: block;">
-              <span class="right-span1">RATING</span>
-              <span class="right-span2">74.0</span>
-            </div>
-          </b-col>
-        </b-row>
-      </b-container>
-    </div>
-    <b-container class="content-fluid">
+    <b-container fluid class="title-box">
       <b-row>
-        <b-col lg="9" md="9" sm="12" cols="12" class="col-left">
+        <b-col sm="9" cols="12" class="box-sm">
+          <div class="box-sm-top">
+            <div class="sm-img">
+              <img class="lazyload" data-src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png" alt="" src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png">
+            </div>
+            <div class="sm-neirong">
+              Genaro Network
+            </div>
+            <div id="topContainer">
+              <div class="title-nav" id="topStickyNav">
+                <ul class="box-sm-bottom">
+                  <li><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
+                  </li>
+                  <li><a href="#" class="jump" jump="jump2">市场分析</a></li>
+                  <li><a href="#" class="jump" jump="jump3">团队分析</a></li>
+                  <li><a href="#" class="jump" jump="jump4">技术分析</a></li>
+                  <li><a href="#" class="jump" jump="jump5">资金监管分析</a></li>
+                  <li><a href="#" class="jump" jump="jump6">盈利模式分析</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </b-col>
+        <b-col sm="3" cols="12" right class="box-rating">
+          <div class="sm-right font2" id="background-image" style="display: block;">
+            <span class="right-span1">RATING</span>
+            <span class="right-span2">74.0</span>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container fluid class="content-fluid">
+      <b-row>
+        <b-col lg="9" md="12" sm="12" cols="12" class="col-left">
           <div class="left-cont">
             <div class="left-head font2" name="jump1" role="anchor">
               项目概况
             </div>
             <b-row class="left-p">
-              <b-col lg="2" md="2" sm="2" cols="12">众筹开始时间</b-col>
-              <b-col lg="10" md="10" sm="10" cols="12">
+              <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹开始时间</b-col>
+              <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
                 2017年11月17日 21时00分
               </b-col>
             </b-row>
             <b-row class="left-p">
-              <b-col lg="2" md="2" sm="2" cols="12">众筹结束时间</b-col>
-              <b-col lg="10" md="10" sm="10" cols="12">
+              <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹结束时间</b-col>
+              <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
                 2017年11月30日 21时00分
               </b-col>
             </b-row>
             <b-row class="left-p">
               <b-col lg="2" md="2" sm="2" cols="12" class="left-span left-sp1">项目发行基本信息</b-col>
-              <b-col lg="10" cols="12">
+              <b-col lg="10" md="10" sm="10" cols="12">
                 <table class="table table-bordered font2">
                   <tbody><tr class="active">
                     <td>ICO总量</td>
@@ -112,46 +110,14 @@
                 <span>有效得分：89分</span>
               </h4>
             </div>
-            <div class="left-p left-p2 row">
-              <table class="font2 col-lg-8 col-md-8 col-sm-8 col-xs-12 bi-ge">
-                <tbody><tr class="ttr ttr1">
-                  <td></td>
-                  <td>维度</td>
-                  <td>说明</td>
-                  <td>项目总分</td>
-                  <td>有效得分</td>
-                </tr>
-                <tr class="ttr ttr2">
-                  <td style="width: 10px;background-color: #36BBD2;"></td>
-                  <td>行业发展</td>
-                  <td>行业成长期,千亿以上规模</td>
-                  <td>30 分</td>
-                  <td>30 分</td>
-                </tr>
-                <tr class="ttr ttr2">
-                  <td style="width: 10px;background-color: #3D586A;"></td>
-                  <td>市场份额</td>
-                  <td>有自身优势的自由竞争市场</td>
-                  <td>30 分</td>
-                  <td>24 分</td>
-                </tr>
-                <tr class="ttr ttr2">
-                  <td style="width: 10px;background-color: #85C225;"></td>
-                  <td>区块链创新及代币必要性</td>
-                  <td>区块链技术是项目运作的关键因素，建立自生的存储生态和代币经济系统</td>
-                  <td>40 分</td>
-                  <td>35 分</td>
-                </tr>
-                <tr class="ttr ttr3">
-                  <td></td>
-                  <td>总计</td>
-                  <td></td>
-                  <td>100 分</td>
-                  <td>89分</td>
-                </tr>
-                </tbody></table>
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 cha-jian" id="chartMarketContainer" _echarts_instance_="ec_1513216675202" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
-            </div>
+            <b-row class="left-p left-p2 row">
+              <b-col lg="8" md="8" sm="8" cols="12">
+                <b-table :items="marketItems" :fields="marketFields"></b-table>
+              </b-col>
+              <b-col lg="4" md="4" sm="4" cols="12">
+                <div class="cha-jian" id="chartMarketContainer" _echarts_instance_="ec_1513216675202" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+              </b-col>
+            </b-row>
             <!-- 团队分析 -->
             <div class="left-head font2 left-fen-p" name="jump3" role="anchor">
               二. 团队分析
@@ -536,7 +502,7 @@
           </div>
         </b-col>
 
-        <b-col lg="3" md="3" sm="12" cols="12" class="col-">
+        <b-col lg="3" md="12" sm="12" cols="12" class="col-">
 
         </b-col>
       </b-row>
@@ -545,21 +511,69 @@
 </template>
 
 <script>
-  export default {}
+  const marketItems = [
+    {
+      dimension: '行业发展',
+      description: '行业成长期,千亿以上规模',
+      total_project: '30分',
+      effective_score: '30分'
+    },
+    {
+      dimension: '市场份额',
+      description: '有自身优势的自由竞争市场',
+      total_project: '30分',
+      effective_score: '24分'
+    },
+    {
+      dimension: '区块链创新及代币必要性',
+      description: '区块链技术是项目运作的关键因素，建立自生的存储生态和代币经济系统',
+      total_project: '40分',
+      effective_score: '35分'
+    },
+    {
+      dimension: '总计',
+      description: '',
+      total_project: '100分',
+      effective_score: '89分'
+    }
+  ]
+
+  const marketFields = {
+    dimension: {
+      label: '维度'
+    },
+    description: {
+      label: '说明'
+    },
+    total_project: {
+      label: '项目总分'
+    },
+    effective_score: {
+      label: '有效得分'
+    }
+  }
+
+  export default {
+    data () {
+      return {
+        marketFields: marketFields,
+        marketItems: marketItems
+      }
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .box-bige
     min-height: 100%;
-    padding-bottom: 110px;
     .title-box
       height: auto;
       width: 100%;
       background-color: #574F60;
     .container-fluid
       padding: 0px
-      .container
-        padding: 0px
+      .row
+        margin: 0
         .box-sm
           padding-left: 10px;
           padding-right: 10px;
@@ -600,6 +614,7 @@
                   padding: 0px 30px;
                   height: 50px;
                   line-height: 50px;
+                  background-color: #443c4d;
                   a
                     padding: 14px 0px 13.8px;
                     color: #fff;
@@ -636,46 +651,141 @@
       height: auto;
       margin-top: 20px;
       padding: 0px;
-      .col-left
-        padding-right: 10px;
-        padding-left: 10px;
-        margin-bottom: 40px;
-        .left-cont
-          background-color: #fff;
-          height: auto;
-          padding: 15px 30px;
-          border-radius: 5px;
-          .left-head
-            height: 50px;
-            border-bottom: 2px solid #574F60;
-            font-size: 16px;
-            color: #574F60;
-            line-height: 50px;
-          .left-p
-            margin: 30px 0px;
-            .left-span
-              display: inline-block;
-              font-size: 14px;
+      .row
+        margin: 0
+        .col-left
+          padding-right: 10px;
+          padding-left: 10px;
+          margin-bottom: 40px;
+          .left-cont
+            background-color: #fff;
+            height: auto;
+            padding: 15px 30px;
+            border-radius: 5px;
+            .left-head
+              height: 50px;
+              border-bottom: 2px solid #574F60;
+              font-size: 16px;
               color: #574F60;
-            .right-span
-              display: inline-block;
+              line-height: 50px;
+            .left-p
+              margin: 30px 0px;
+              .left-span
+                display: inline-block;
+                font-size: 14px;
+                color: #574F60;
+              .right-span
+                display: inline-block;
+                font-size: 14px;
+                color: #574F60;
+                font-weight: bold;
+                padding-left: 20px;
+          .bg-p
+            width: 100%;
+            height: 20px;
+            background-color: #EDEEEF;
+          .left-cont
+            background-color: #fff;
+            height: auto;
+            padding: 15px 30px;
+            border-radius: 5px;
+            .gauge
+              height: 60px;
+              width: 100%;
+              border-bottom: 2px solid #574F60;
+              margin-bottom: 30px;
+              p.p1
+                float: left;
+                height: 60px;
+                line-height: 60px;
+                font-size: 16px;
+                color: #574F60;
+                margin-right: 22px;
+              .p3
+                float: right;
+                .grade-sp1
+                  display: block;
+                  float: left;
+                  font-size: 24px;
+                  color: #0072E6;
+                  font-weight: bold;
+                  line-height: 60px;
+                .grade-sp2
+                  display: block;
+                  float: left;
+                  font-size: 24px;
+                  color: #0072E6;
+                  font-weight: bold;
+                  line-height: 60px;
+            .left-p
+              margin: 30px 0px;
+              .left-span
+                display: inline-block;
+                font-size: 14px;
+                color: #574F60;
+              .right-span
+                display: inline-block;
+                font-size: 14px;
+                color: #574F60;
+                font-weight: bold;
+                padding-left: 20px;
+              p
+                font-size: 14px;
+                color: #3C3C3C;
+                line-height: 34px;
+                margin: 20px 0px;
+                font-weight: 400;
+              h4
+                font-size: 16px;
+                font-weight: 500;
+                color: #574F60;
+                line-height: 42px;
+                margin: 0px;
+                white-space: nowrap;
+                span
+                  display: inline-block;
+                  font-size: 14px;
+                  color: #464646;
+                span:nth-child(1)
+                  padding-left: 30px;
+                  padding-right: 30px;
+            .left-fen-p
+              border-bottom: 1px solid #DDDDDD;
+            .left-p1
+              margin: 20px 0px;
+            .left-p2
+              margin-bottom: 50px;
+            .row
+              .tm-dl
+                margin-top: 30px;
+                dt
+                  width: 120px;
+                  height: 120px;
+                  margin: 0 auto 18px;
+                  img
+                    width: 120px;
+                    height: 120px;
+                .tm-dd1
+                  font-size: 18px;
+                  color: #000;
+                  text-align: center;
+                  margin-bottom: 8px;
+                .tm-dd2
+                  font-size: 14px;
+                  color: #959595;
+                  text-align: center;
+            .table
+              margin-left: 0px;
+              border: 1px solid #e2e2e2;
+            .statement
               font-size: 14px;
-              color: #574F60;
-              font-weight: bold;
-              padding-left: 20px;
-        .bg-p
-          width: 100%;
-          height: 20px;
-          background-color: #EDEEEF;
-        .left-cont
-          background-color: #fff;
-          height: auto;
-          padding: 15px 30px;
-          border-radius: 5px;
-      .col-right
-        padding-right: 10px;
-        padding-left: 10px;
-        margin-bottom: 40px;
+              color: #3C3C3C;
+              line-height: 26px;
+              margin: 15px 0px;
+        .col-right
+          padding-right: 10px;
+          padding-left: 10px;
+          margin-bottom: 40px;
   @media (max-width: 991px) and (min-width: 768px)
     .box-bige
       .container-fluid
@@ -688,4 +798,14 @@
                   padding: 0px 12px;
                   a
                     padding: 13px 0px 13px;
+      .content-fluid
+        .row
+          .col-left
+            .left-cont
+              .left-p
+                .left-span
+                  margin-bottom: 10px;
+                .right-span
+                  padding-left: 0px;
+                  font-size: 14px;
 </style>
