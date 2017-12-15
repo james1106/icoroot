@@ -69,6 +69,7 @@
             overflow: hidden;
             .r-link:hover
               text-decoration none
+              height 45px;
             .r-link
               padding: 13px 27px 15px
               height 45px;
@@ -76,6 +77,7 @@
               font-size: 14px;
               color: #574F60;
             .router-link-active
+              height 45px;
               color #fff
               background-color #574f60
       .choose-wrapper
@@ -110,6 +112,7 @@
               text-decoration none
             .r-link
               display: inline-block;
+              height 45px;
               padding: 13px 20px 14px;
               font-size: 14px;
               color: #574F60;
@@ -152,6 +155,7 @@
               text-decoration none
             .r-link
               display: inline-block;
+              height 45px;
               color: #574F60;
               padding: 13px 18px 13px;
               font-size: 13px;

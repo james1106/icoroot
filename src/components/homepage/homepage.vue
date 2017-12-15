@@ -278,7 +278,10 @@
           </div>
         </b-col>
       </b-row>
-      <b-container>
+      <p class="underway-p">
+        进行中的项目
+      </p>
+      <b-container class="list-container">
         <cal-list></cal-list>
       </b-container>
     </b-container>
@@ -319,6 +322,8 @@
       .col-item
         border-radius 5px
         overflow hidden
+        padding-left 10px;
+        padding-right 10px;
       .toutiao
         height: 300px;
         padding-right: 10px;
@@ -359,8 +364,8 @@
       height: 63px;
       line-height: 63px;
       width: 100%;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
       .p-spn1
         font-size: 20px;
         color: #000;
@@ -476,4 +481,18 @@
               color: #333;
               background-color: #fff;
               border-color: #ccc;
+    .underway-p
+      width: 100%;
+      height: 71px;
+      line-height: 71px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #574F60;
+      font-size: 20px;
+    .list-container
+      padding-left 10px
+      padding-right 10px
+  @media (min-width: 1200px)
+    .container
+      max-width: 1170px;
 </style>

@@ -8,6 +8,9 @@ import Launch from '@/components/launch/launch'
 import Begin from '@/components/calendar/begin/begin'
 import Doing from '@/components/calendar/doing/doing'
 import Ended from '@/components/calendar/ended/ended'
+import Login from '@/components/login/login'
+import Register from '@/components/register/register'
+import Error from '@/components/error/error'
 
 Vue.use(Router)
 
@@ -46,6 +49,18 @@ export default new Router({
       path: '/launch',
       name: 'launch',
       component: Launch
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/register',
+      component: Register
+    },
+    {
+      path: '*',
+      component: Error
     }
   ]
 })
