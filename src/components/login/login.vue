@@ -9,13 +9,13 @@
                           type="email"
                           v-model="form.email"
                           required
-                          placeholder="请输入账号/邮箱">
+                          placeholder="请输入邮箱">
             </b-form-input>
           </b-form-group>
           <b-form-group id="exampleInputGroup2" label="密码">
             <b-form-input id="exampleInput2"
                           type="password"
-                          v-model="form.name"
+                          v-model="form.password"
                           required
                           placeholder="请输入密码">
             </b-form-input>
@@ -35,31 +35,26 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import api from '../../api/login'
+
   export default {
     data () {
       return {
         form: {
           email: '',
-          name: '',
-          food: null,
-          checked: false
+          password: ''
         },
-        foods: [
-          {text: 'Select One', value: null},
-          'Carrots', 'Beans', 'Tomatoes', 'Corn'
-        ],
         show: true
       }
     },
     methods: {
       onSubmit (evt) {
         evt.preventDefault()
-        alert(JSON.stringify(this.form))
         api.localLogin(this.user).then(function (response) {
           if (response.data.type === true) {
             window.location = '/'
           } else {
-            alert('请输入正确的用户名和密码')
+            alert('请输入正确的邮箱和密码')
           }
         })
           .catch(function (error) {
@@ -68,12 +63,8 @@
       },
       onReset (evt) {
         evt.preventDefault()
-        // Reset our form values
         this.form.email = ''
         this.form.name = ''
-        this.form.food = null
-        this.form.checked = false
-        // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true

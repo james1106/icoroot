@@ -686,104 +686,119 @@
 </template>
 
 <script>
-  const marketItems = [
-    {
-      dimension: '行业发展',
-      description: '行业成长期,千亿以上规模',
-      total_project: '30分',
-      effective_score: '30分'
-    },
-    {
-      dimension: '市场份额',
-      description: '有自身优势的自由竞争市场',
-      total_project: '30分',
-      effective_score: '24分'
-    },
-    {
-      dimension: '区块链创新及代币必要性',
-      description: '区块链技术是项目运作的关键因素，建立自生的存储生态和代币经济系统',
-      total_project: '40分',
-      effective_score: '35分'
-    },
-    {
-      dimension: '总计',
-      description: '',
-      total_project: '100分',
-      effective_score: '89分'
-    }
-  ]
-
-  /* const teamItems = [
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '技术团队区块链项目经验',
-      description: '具备区块链项目经验',
-      total_project: '15分',
-      effective_score: '12分'
-    },
-    {
-      dimension: '总计',
-      description: '',
-      total_project: '100分',
-      effective_score: '89分'
-    }
-  ] */
-
-  const marketFields = {
-    dimension: {
-      label: '维度'
-    },
-    description: {
-      label: '说明'
-    },
-    total_project: {
-      label: '项目总分'
-    },
-    effective_score: {
-      label: '有效得分'
-    }
-  }
+  import { getDetail } from '../../api/detail'
 
   export default {
     data () {
       return {
         marketFields: marketFields,
-        marketItems: marketItems
+        marketItems: marketItems,
+        detail: {
+          projectOverview: {
+            projectName: '',
+            projectIntroduction: '',
+            beginTime: '',
+            overTime: '',
+            icoTotal: '',
+            token_total: '',
+            prospectusUpperlimit: '',
+            tokenAccept: '',
+            tokenType: '',
+            officialWebsite: '',
+            projectDescription: '',
+            rating: ''
+          },
+          marketAnalysis: {
+            summary: '',
+            advantage: '',
+            conclusion: '',
+            industryDevelop: '',
+            marketShare: '',
+            innovate: '',
+            marketItems: [
+              {
+                dimension: '行业发展',
+                description: '行业成长期,千亿以上规模',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '市场份额',
+                description: '有自身优势的自由竞争市场',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '区块链创新及代币必要性',
+                description: '区块链技术是项目运作的关键因素，建立自生的存储生态和代币经济系统',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '总计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              }
+            ],
+            marketFields: {
+              dimension: {
+                label: '维度'
+              },
+              description: {
+                label: '说明'
+              },
+              total_project: {
+                label: '项目总分'
+              },
+              effective_score: {
+                label: '有效得分'
+              }
+            }
+          },
+          teamAnalysis: {
+            summary: '',
+            conclusion: '',
+            data1: '',
+            data2: '',
+            data3: '',
+            data4: '',
+            data5: '',
+            data6: '',
+            data7: ''
+          },
+          technicalAnalysis: {
+            summary: '',
+            conclusion: '',
+            data1: '',
+            data2: '',
+            data3: '',
+            data4: '',
+            data5: '',
+            data6: '',
+            data7: ''
+          },
+          regulatoryAnalysis: {
+            summary: '',
+            data1: '',
+            data2: ''
+          },
+          PatternAnalysis: {
+            summary: '',
+            data1: ''
+          }
+        }
+      }
+    },
+    created () {
+      this._getDetail()
+    },
+    methods: {
+      _getDetail: function () {
+        getDetail().then((res) => {
+          this.detail = res.data.detail
+          console.log(this.detail)
+        })
       }
     }
   }

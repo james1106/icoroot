@@ -3,51 +3,44 @@
     <div>
       <form action="">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <b-form-group id="exampleInputGroup1"
-                        label="用户名">
-            <b-form-input id="exampleInput1"
-                          type="email"
+          <b-form-group>
+            <b-form-input type="text"
                           v-model="user.name"
                           required
                           placeholder="请输入用户名">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="exampleInputGroup1"
-                        label="邮箱">
-            <b-form-input id="exampleInput1"
-                          type="email"
+          <b-form-group>
+            <b-form-input type="email"
                           v-model="user.email"
                           required
                           placeholder="请输入邮箱">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="exampleInputGroup1"
-                        label="验证码">
-            <b-form-input id="exampleInput1"
-                          type="email"
+          <b-form-group class="text">
+            <b-form-input type="text"
+                          class="emailInput"
                           v-model="user.verifyCode"
                           required
                           placeholder="请输入验证码">
             </b-form-input>
-            <b-button type="button" @click="onSendEmail" variant="primary">点击发送</b-button>
+            <b-button class="emailButton" type="button" @click="onSendEmail" variant="primary">点击发送</b-button>
           </b-form-group>
-          <b-form-group id="exampleInputGroup2" label="密码">
-            <b-form-input id="exampleInput2"
-                          type="password"
+          <b-form-group>
+            <b-form-input type="password"
                           v-model="user.password"
                           required
                           placeholder="请输入密码">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="exampleInputGroup2" label="确认密码">
-            <b-form-input id="exampleInput2"
-                          type="password"
+          <b-form-group>
+            <b-form-input type="password"
                           v-model="user.pwd"
                           required
                           placeholder="请再次输入密码">
             </b-form-input>
           </b-form-group>
-          <b-button type="submit" variant="primary">登录</b-button>
+          <b-button type="submit" variant="primary" class="registerButton">注册</b-button>
         </b-form>
       </form>
       <div class="error" v-show="error">{{error}}</div>
@@ -56,7 +49,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import api from '../../api/index'
+  import api from '../../api/login'
 
   export default {
     data () {
@@ -67,14 +60,8 @@
           name: '',
           password: '',
           pwd: '',
-          verifyCode: '',
-          food: null,
-          checked: false
+          verifyCode: ''
         },
-        foods: [
-          {text: 'Select One', value: null},
-          'Carrots', 'Beans', 'Tomatoes', 'Corn'
-        ],
         show: true
       }
     },
@@ -85,27 +72,30 @@
           this.error = '输入不得为空'
         } else if (this.user.password !== this.user.pwd) {
           this.error = '两次密码输入不一致'
-        } else if (this.user.password.length < 3) {
-          this.error = '密码长度不得小于3位'
+        } else if (this.user.password.length < 5) {
+          this.error = '密码长度不得小于5位'
         } else if (!this.user.email) {
           this.error = '邮箱不得为空'
         } else {
           api.localReg(this.user).then(function () {
             alert('登录成功')
           })
-            .catch(function (error) {
-              console.log(error)
-            })
-          alert('验证码已发送，15分钟内失效，请注意查收');
-        }
-      },
-      onSendEmail () {
-        api.localEmail(this.user.email).then(function () {
-          alert('验证码已发送')
-        })
           .catch(function (error) {
             console.log(error)
           })
+        }
+      },
+      onSendEmail () {
+        if (!this.user.email) {
+          this.error = '邮箱不得为空'
+        } else {
+          api.localEmail(this.user).then(function () {
+            alert('验证码已发送')
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+        }
       },
       onReset (evt) {
         evt.preventDefault()
@@ -114,9 +104,6 @@
         this.user.name = ''
         this.user.password = ''
         this.user.pwd = ''
-        this.user.food = null
-        this.user.checked = false
-        // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true
@@ -127,6 +114,13 @@
 </script>
 
 <style lang="stylus" type="text/stylus">
+  .col-12
+    display flex
+    .emailInput
+      flex 2
+    .emailButton
+      flex 1
+      margin-left 20px
   @media (min-width: 1201px)
     .login-wrapper
       width 100%
