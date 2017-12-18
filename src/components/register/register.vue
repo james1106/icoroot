@@ -1,5 +1,6 @@
 <template>
   <div class="login-wrapper">
+    <sign></sign>
     <div>
       <form action="">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
@@ -40,7 +41,9 @@
                           placeholder="请再次输入密码">
             </b-form-input>
           </b-form-group>
-          <b-button type="submit" variant="primary" class="registerButton">注册</b-button>
+          <b-form-group>
+            <b-button type="submit" variant="primary" class="registerButton">注册</b-button>
+          </b-form-group>
         </b-form>
       </form>
       <div class="error" v-show="error">{{error}}</div>
@@ -49,9 +52,13 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import Sign from '@/components/sign/sign'
   import api from '../../api/login'
 
   export default {
+    components: {
+      sign: Sign
+    },
     data () {
       return {
         error: false,
@@ -99,7 +106,6 @@
       },
       onReset (evt) {
         evt.preventDefault()
-        // Reset our form values
         this.user.email = ''
         this.user.name = ''
         this.user.password = ''
@@ -121,12 +127,13 @@
     .emailButton
       flex 1
       margin-left 20px
+    .registerButton
+      width 100%
   @media (min-width: 1201px)
     .login-wrapper
       width 100%
       padding-top 150px
       background-color #fff
-      padding-bottom 150px
       & > div
         width 600px
         margin 0 auto
@@ -137,7 +144,6 @@
       width 100%
       padding-top 150px
       background-color #fff
-      padding-bottom 150px
       & > div
         width 500px
         margin 0 auto
@@ -148,7 +154,6 @@
       width 100%
       padding-top 150px
       background-color #fff
-      padding-bottom 150px
       & > div
         padding-left 20px
         padding-right 20px

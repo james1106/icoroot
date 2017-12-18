@@ -1,10 +1,10 @@
 <template>
   <div class="login-wrapper">
+    <sign></sign>
     <div>
       <form action="">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <b-form-group id="exampleInputGroup1"
-                        label="用户名">
+          <b-form-group id="exampleInputGroup1">
             <b-form-input id="exampleInput1"
                           type="email"
                           v-model="form.email"
@@ -12,7 +12,7 @@
                           placeholder="请输入邮箱">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="exampleInputGroup2" label="密码">
+          <b-form-group id="exampleInputGroup2">
             <b-form-input id="exampleInput2"
                           type="password"
                           v-model="form.password"
@@ -27,7 +27,9 @@
               </span>
             </b-form-checkbox>
           </b-form-group>
-          <b-button type="submit" variant="primary">登录</b-button>
+          <b-form-group>
+            <b-button type="submit" variant="primary" class="loginButton">登录</b-button>
+          </b-form-group>
         </b-form>
       </form>
     </div>
@@ -35,9 +37,13 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import Sign from '@/components/sign/sign'
   import api from '../../api/login'
 
   export default {
+    components: {
+      sign: Sign
+    },
     data () {
       return {
         form: {
@@ -75,12 +81,14 @@
 </script>
 
 <style lang="stylus" type="text/stylus">
+  .col-12
+    .loginButton
+      width 100%
 @media (min-width: 1201px)
   .login-wrapper
     width 100%
-    padding-top 150px
+    padding-top 180px
     background-color #fff
-    padding-bottom 150px
     & > div
       width 600px
       margin 0 auto
@@ -89,9 +97,8 @@
 @media (max-width: 1200px) and (min-width: 769px)
   .login-wrapper
     width 100%
-    padding-top 150px
+    padding-top 180px
     background-color #fff
-    padding-bottom 150px
     & > div
       width 500px
       margin 0 auto
@@ -100,9 +107,8 @@
 @media (max-width: 768px)
   .login-wrapper
     width 100%
-    padding-top 150px
+    padding-top 180px
     background-color #fff
-    padding-bottom 150px
     & > div
       padding-left 20px
       padding-right 20px

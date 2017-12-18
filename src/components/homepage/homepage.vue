@@ -1,298 +1,309 @@
 <template>
-  <b-container fluid class="container-fluid" id="box-bige">
-    <b-container>
-      <b-row align-h="center" class="box-row">
-        <b-col md="9" sm="12" class="col-item">
-          <b-carousel id="carousel1"
-                      style="text-shadow: 1px 1px 2px #333;"
-                      controls
-                      indicators
-                      background="#ababab"
-                      :interval="3000"
-                      v-model="slide"
-                      @sliding-start="onSlideStart"
-                      @sliding-end="onSlideEnd"
-          >
+  <div>
+    <IHeader></IHeader>
+    <b-container fluid class="container-fluid" id="box-bige">
+      <b-container>
+        <b-row align-h="center" class="box-row">
+          <b-col md="9" sm="12" class="col-item">
+            <b-carousel id="carousel1"
+                        style="text-shadow: 1px 1px 2px #333;"
+                        controls
+                        indicators
+                        background="#ababab"
+                        :interval="3000"
+                        v-model="slide"
+                        @sliding-start="onSlideStart"
+                        @sliding-end="onSlideEnd"
+            >
 
-            <!-- Text slides with image -->
-            <b-carousel-slide caption="First slide"
-                              text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                              style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner1.png?_=20171206142557')"
-            ></b-carousel-slide>
+              <!-- Text slides with image -->
+              <b-carousel-slide caption="First slide"
+                                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                                style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner1.png?_=20171206142557')"
+              ></b-carousel-slide>
 
-            <!-- Text slides with image -->
-            <b-carousel-slide caption="First slide"
-                              text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                              style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner2.png?_=20171206142557')"
-            ></b-carousel-slide>
+              <!-- Text slides with image -->
+              <b-carousel-slide caption="First slide"
+                                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                                style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner2.png?_=20171206142557')"
+              ></b-carousel-slide>
 
-          </b-carousel>
-        </b-col>
-        <b-col md="3" sm="12" class="col-item toutiao">
-          <div class="tou-cont">
-            <h4>ICO头条</h4>
-            <p class="tou-p">
-              <a href="https://www.icoroot.com/news/detail/76">
-                Genaro 与Storj宣布全面战略合作与产品整合
-              </a>
-            </p>
-            <p class="tou-p">
-              <a href="https://www.icoroot.com/news/detail/77">
-                同样是共享CDN+数字资产 为何百度金矿退避三分而迅雷却高歌猛进？
-              </a>
-            </p>
-            <p class="tou-p">
-              <a href="https://www.icoroot.com/news/detail/78">
-                重庆市高度重视区块链发展 区块链在地方落地进程加快
-              </a>
-            </p>
-            <p class="tou-p">
-              <a href="https://www.icoroot.com/news/detail/75">
-                用AI约会，唱歌，见偶像……PAI想用区块链打造每个人的人工智能
-              </a>
-            </p>
-          </div>
-        </b-col>
-      </b-row>
-      <p class="p-title font1">
-        <span class="p-spn1">热门项目</span>
-        <a href="https://www.icoroot.com/project/list">
-          <span class="p-spn2">查看更多</span>
-        </a>
-      </p>
-      <b-row align-h="center" class="row">
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
-
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
+            </b-carousel>
+          </b-col>
+          <b-col md="3" sm="12" class="col-item toutiao">
+            <div class="tou-cont">
+              <h4>ICO头条</h4>
+              <p class="tou-p">
+                <a href="https://www.icoroot.com/news/detail/76">
+                  Genaro 与Storj宣布全面战略合作与产品整合
+                </a>
               </p>
-
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
-            </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
-
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
+              <p class="tou-p">
+                <a href="https://www.icoroot.com/news/detail/77">
+                  同样是共享CDN+数字资产 为何百度金矿退避三分而迅雷却高歌猛进？
+                </a>
               </p>
-
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
-            </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
-
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
+              <p class="tou-p">
+                <a href="https://www.icoroot.com/news/detail/78">
+                  重庆市高度重视区块链发展 区块链在地方落地进程加快
+                </a>
               </p>
-
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
-            </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
-
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
+              <p class="tou-p">
+                <a href="https://www.icoroot.com/news/detail/75">
+                  用AI约会，唱歌，见偶像……PAI想用区块链打造每个人的人工智能
+                </a>
               </p>
-
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
             </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+          </b-col>
+        </b-row>
+        <p class="p-title font1">
+          <span class="p-spn1">热门项目</span>
+          <a href="https://www.icoroot.com/project/list">
+            <span class="p-spn2">查看更多</span>
+          </a>
+        </p>
+        <b-row align-h="center" class="row">
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
 
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
-              </p>
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
 
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
             </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
 
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
-              </p>
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
 
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
             </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
 
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
-              </p>
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
 
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
             </div>
-          </div>
-        </b-col>
-        <b-col md="3" sm="6" xs="12" class="box">
-          <div class="box-cont">
-            <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-              <a href="https://www.icoroot.com/project/detail/115">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
-              </a>
-              <a href="https://www.icoroot.com/project/detail/115">
-                <div class="fenshu">
-                  <span class="sp1">评级</span>
-                  <span class="sp2">77.0</span>
-                </div>
-              </a>
-            </div>
-            <div class="box-bottom">
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-              <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
 
-              <p class="box-p3">
-                于 2017-12-05 15:00:00 结束
-              </p>
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
 
-              <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
-                ICO结束
-              </a>
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
             </div>
-          </div>
-        </b-col>
-      </b-row>
-      <p class="underway-p">
-        进行中的项目
-      </p>
-      <b-container class="list-container">
-        <cal-list></cal-list>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
+
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
+            </div>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
+
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
+            </div>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
+
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
+            </div>
+          </b-col>
+          <b-col md="3" sm="6" xs="12" class="box">
+            <div class="box-cont">
+              <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+                </a>
+                <a href="https://www.icoroot.com/project/detail/115">
+                  <div class="fenshu">
+                    <span class="sp1">评级</span>
+                    <span class="sp2">77.0</span>
+                  </div>
+                </a>
+              </div>
+              <div class="box-bottom">
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
+                <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+
+                <p class="box-p3">
+                  于 2017-12-05 15:00:00 结束
+                </p>
+
+                <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
+                  ICO结束
+                </a>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <p class="underway-p">
+          进行中的项目
+        </p>
+        <b-container class="list-container">
+          <cal-list></cal-list>
+        </b-container>
       </b-container>
     </b-container>
-  </b-container>
+    <IFooter></IFooter>
+    <Fix></Fix>
+  </div>
 </template>
 <script>
+  import IHeader from '@/components/iHeader/iHeader'
+  import IFooter from '@/components/ifooter/ifooter'
+  import Fix from '@/components/fix/fix'
   import CalendarList from '@/components/calendarList/calendarList.vue'
 
   export default {
     components: {
-      calList: CalendarList
+      calList: CalendarList,
+      IHeader,
+      IFooter,
+      Fix
     },
     data () {
       return {

@@ -1,16 +1,12 @@
 <template>
   <b-container fluid class="footer-fluid">
       <b-row>
-        <b-col md="4" sm="12">
-          <ul class="foot-login">
-            <li>
-              <a href="#" class="foot-a">
-                <img src="//cdn.icoroot.com/public/static/img/icoroot.svg" alt="" class="img-2">
-              </a>
-            </li>
-          </ul>
+        <b-col md="4" sm="12" class="foot-tip">
+          <a href="#" class="foot-a">
+            <img src="//cdn.icoroot.com/public/static/img/icoroot.svg" alt="">
+          </a>
         </b-col>
-        <b-col md="8" sm="12">
+        <b-col md="8" sm="12" class="foot-tip">
           <ul class="foot-us">
             <li class="font1"><a href="https://www.icoroot.com/about?about=service">服务条款</a></li>
             <li class="font1 li-bor"><a href="https://www.icoroot.com/about?about=contanct">联系我们</a></li>
@@ -30,18 +26,21 @@
     width: 100%;
     height: 110px;
     background-color #fff;
-    .foot-login
+    .foot-tip
       margin-top: 40px;
       padding-left: 0px;
-      li .foot-a .img-2
-        display: inline-block;
-        width: 100px;
-        height: 35px;
-        margin-left: 10px;
+      padding-right: 0px;
+      a.foot-a
+        img
+          display: inline-block;
+          width: 100px;
+          height: 35px;
+          margin-left: 20px;
     .foot-us
+      display flex
       margin-top: 45px;
       li
-        float: right;
+        flex 1
         height: 19px;
         color: #000;
         width: 105px;

@@ -1,26 +1,12 @@
 <template>
   <div id="app">
-    <IHeader></IHeader>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
-    <IFooter></IFooter>
-    <Fix></Fix>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import IHeader from '@/components/iHeader/iHeader'
-  import IFooter from '@/components/ifooter/ifooter'
-  import Fix from '@/components/fix/fix'
-
   export default {
-    name: 'app',
-    components: {
-      IHeader,
-      IFooter,
-      Fix
-    }
+    name: 'app'
   }
 </script>
 

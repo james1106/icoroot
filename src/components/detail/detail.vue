@@ -1,5 +1,6 @@
 <template>
   <div class="box-bige">
+    <IHeader></IHeader>
     <b-container fluid class="title-box">
       <b-container>
         <b-row>
@@ -115,7 +116,7 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="marketItems" :fields="marketFields"></b-table>
+                  <b-table :items="detail.marketAnalysis.marketItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
                   <div class="cha-jian" id="chartMarketContainer" _echarts_instance_="ec_1513216675202" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
@@ -165,74 +166,14 @@
                   <span>有效得分：81分</span>
                 </h4>
               </div>
-              <div class="left-p left-p2 row">
-                <table class="font2 col-sm-8 bi-ge">
-                  <tbody><tr class="ttr ttr1">
-                    <td></td>
-                    <td>维度</td>
-                    <td>说明</td>
-                    <td>项目总分</td>
-                    <td>有效得分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #36BBD2;"></td>
-                    <td>技术团队区块链项目经验</td>
-                    <td>具备区块链项目经验</td>
-                    <td>15 分</td>
-                    <td>12 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #3D586A;"></td>
-                    <td>技术团队实力</td>
-                    <td>技术团队有较为丰富开发经验</td>
-                    <td>15 分</td>
-                    <td>13 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #85C225;"></td>
-                    <td>技术团队完整性</td>
-                    <td>较好</td>
-                    <td>10 分</td>
-                    <td>8 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #EC6908;"></td>
-                    <td>运营团队经验</td>
-                    <td>一般团队新增较多区块链运营人员</td>
-                    <td>15 分</td>
-                    <td>10 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #F5A61D;"></td>
-                    <td>运营团队实力</td>
-                    <td>数字行业有专门的社区人员</td>
-                    <td>15 分</td>
-                    <td>11 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #D6B3D4;"></td>
-                    <td>运营团队完整性</td>
-                    <td>较好</td>
-                    <td>10 分</td>
-                    <td>7 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #9F9F9F;"></td>
-                    <td>投资人</td>
-                    <td>业内知名机构投资</td>
-                    <td>20 分</td>
-                    <td>20 分</td>
-                  </tr>
-                  <tr class="ttr ttr3">
-                    <td></td>
-                    <td>总计</td>
-                    <td></td>
-                    <td>100分</td>
-                    <td>81分</td>
-                  </tr>
-                  </tbody></table>
-                <div class="col-sm-4 cha-jian" id="chartTeamContainer" _echarts_instance_="ec_1513216675201" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
-              </div>
+              <b-row class="left-p left-p2 row">
+                <b-col lg="8" md="8" sm="8" cols="12">
+                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                </b-col>
+                <b-col lg="4" md="4" sm="4" cols="12">
+                  <div class="col-sm-4 cha-jian" id="chartTeamContainer" _echarts_instance_="ec_1513216675201" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+                </b-col>
+              </b-row>
               <!-- 技术分析 -->
               <div class="left-head font2 left-fen-p" name="jump4" role="anchor">
                 三. 技术分析
@@ -246,75 +187,14 @@
                   <span>有效得分：68分</span>
                 </h4>
               </div>
-              <div class="left-p left-p2 row">
-                <table class="font2 col-sm-8 col-xs-12 bi-ge">
-                  <tbody><tr class="ttr ttr1">
-                    <td></td>
-                    <td>维度</td>
-                    <td>说明</td>
-                    <td>项目总分</td>
-                    <td>有效得分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #36BBD2;"></td>
-                    <td>技术创新</td>
-                    <td>改良PoR算法，建立Genaro公链</td>
-                    <td>20 分</td>
-                    <td>14 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #3D586A;"></td>
-                    <td>架构设计</td>
-                    <td>SPoR技术+POS，增加了公链的可扩展性</td>
-                    <td>10 分</td>
-                    <td>8 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #85C225;"></td>
-                    <td>网络</td>
-                    <td>自建公链</td>
-                    <td>10 分</td>
-                    <td>8 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #EC6908;"></td>
-                    <td>技术难度</td>
-                    <td>高。分布式存储及其安全性</td>
-                    <td>10 分</td>
-                    <td>8 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #D6B3D4;"></td>
-                    <td>专利/开源</td>
-                    <td>开源代码仅有众筹合约</td>
-                    <td>10 分</td>
-                    <td>4 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #F5A61D;"></td>
-                    <td>应用前景</td>
-                    <td>去中心化存储有取代云存储的趋势</td>
-                    <td>20 分</td>
-                    <td>14 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #9F9F9F;"></td>
-                    <td>开发进度</td>
-                    <td>开发中，有demo演示</td>
-                    <td>20 分</td>
-                    <td>12 分</td>
-                  </tr>
-                  <tr class="ttr ttr3">
-                    <td></td>
-                    <td>总计</td>
-                    <td></td>
-                    <td>100分</td>
-                    <td>68分</td>
-                  </tr>
-                  </tbody></table>
-                <div class="col-sm-4 col-xs-12 cha-jian" id="chartTechnologyContainer">
-                </div>
-              </div>
+              <b-row class="left-p left-p2 row">
+                <b-col lg="8" md="8" sm="8" cols="12">
+                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                </b-col>
+                <b-col lg="4" md="4" sm="4" cols="12">
+                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartTechnologyContainer"></div>
+                </b-col>
+              </b-row>
               <!-- 资金监管分析 -->
               <div class="left-head font2 left-fen-p" name="jump5" role="anchor">
                 四. 资金监管分析
@@ -329,41 +209,14 @@
                   <span>有效得分：45分</span>
                 </h4>
               </div>
-              <div class="left-p left-p2 row">
-                <table class="font2 col-sm-8 col-xs-12 bi-ge">
-                  <tbody><tr class="ttr ttr1">
-                    <td></td>
-                    <td>维度</td>
-                    <td>说明</td>
-                    <td>项目总分</td>
-                    <td>有效得分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #36BBD2;"></td>
-                    <td>内部监管</td>
-                    <td>有预算，基金会架构</td>
-                    <td>50 分</td>
-                    <td>35 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #3D586A;"></td>
-                    <td>外部监管</td>
-                    <td>未见表述</td>
-                    <td>50 分</td>
-                    <td>10 分</td>
-                  </tr>
-                  <tr class="ttr ttr3">
-                    <td></td>
-                    <td>总计</td>
-                    <td></td>
-                    <td>100分</td>
-                    <td>45分</td>
-                  </tr>
-                  </tbody></table>
-                <div class="col-sm-4 col-xs-12 cha-jian" id="chartMoneyContainer">
-
-                </div>
-              </div>
+              <b-row class="left-p left-p2 row">
+                <b-col lg="8" md="8" sm="8" cols="12">
+                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                </b-col>
+                <b-col lg="4" md="4" sm="4" cols="12">
+                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartMoneyContainer"></div>
+                </b-col>
+              </b-row>
               <!-- 盈利模式分析 -->
               <div class="left-head font2 left-fen-p" name="jump6" role="anchor">
                 五. 盈利模式分析
@@ -378,33 +231,14 @@
                   <span>有效得分：70分</span>
                 </h4>
               </div>
-              <div class="left-p left-p2 row">
-                <table class="font2 col-sm-8 col-xs-12 bi-ge">
-                  <tbody><tr class="ttr ttr1">
-                    <td></td>
-                    <td>维度</td>
-                    <td>说明</td>
-                    <td>项目总分</td>
-                    <td>有效得分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #36BBD2;"></td>
-                    <td>盈利模式</td>
-                    <td>清晰明确，可行性较强，未来盈利取决于数据存储行业的市场份额</td>
-                    <td>100 分</td>
-                    <td>70 分</td>
-                  </tr>
-                  <tr class="ttr ttr3">
-                    <td></td>
-                    <td>总计</td>
-                    <td></td>
-                    <td>100分</td>
-                    <td>70分</td>
-                  </tr>
-                  </tbody></table>
-                <div class="col-sm-4 col-xs-12 cha-jian" id="chartGainContainer">
-                </div>
-              </div>
+              <b-row class="left-p left-p2 row">
+                <b-col lg="8" md="8" sm="8" cols="12">
+                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                </b-col>
+                <b-col lg="4" md="4" sm="4" cols="12">
+                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartGainContainer"></div>
+                </b-col>
+              </b-row>
               <!-- 投资建议 -->
               <div class="left-head font2">
                 投资建议
@@ -682,17 +516,39 @@
         </b-row>
       </b-container>
     </b-container>
+    <IFooter></IFooter>
+    <Fix></Fix>
   </div>
 </template>
 
 <script>
+  import IHeader from '@/components/iHeader/iHeader'
+  import IFooter from '@/components/ifooter/ifooter'
+  import Fix from '@/components/fix/fix'
   import { getDetail } from '../../api/detail'
 
   export default {
+    components: {
+      IHeader,
+      IFooter,
+      Fix
+    },
     data () {
       return {
-        marketFields: marketFields,
-        marketItems: marketItems,
+        fields: {
+          dimension: {
+            label: '维度'
+          },
+          description: {
+            label: '说明'
+          },
+          total_project: {
+            label: '项目总分'
+          },
+          effective_score: {
+            label: '有效得分'
+          }
+        },
         detail: {
           projectOverview: {
             projectName: '',
@@ -718,19 +574,19 @@
             marketItems: [
               {
                 dimension: '行业发展',
-                description: '行业成长期,千亿以上规模',
+                description: '',
                 total_project: '',
                 effective_score: ''
               },
               {
                 dimension: '市场份额',
-                description: '有自身优势的自由竞争市场',
+                description: '',
                 total_project: '',
                 effective_score: ''
               },
               {
                 dimension: '区块链创新及代币必要性',
-                description: '区块链技术是项目运作的关键因素，建立自生的存储生态和代币经济系统',
+                description: '',
                 total_project: '',
                 effective_score: ''
               },
@@ -740,21 +596,7 @@
                 total_project: '',
                 effective_score: ''
               }
-            ],
-            marketFields: {
-              dimension: {
-                label: '维度'
-              },
-              description: {
-                label: '说明'
-              },
-              total_project: {
-                label: '项目总分'
-              },
-              effective_score: {
-                label: '有效得分'
-              }
-            }
+            ]
           },
           teamAnalysis: {
             summary: '',
@@ -765,7 +607,57 @@
             data4: '',
             data5: '',
             data6: '',
-            data7: ''
+            data7: '',
+            teamItems: [
+              {
+                dimension: '技术团队区块链项目经验',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '技术团队实力',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '技术团队完整性',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '运营团队实力',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '运营团队完整性',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '投资人',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '技术团队完整性',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '总计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              }
+            ]
           },
           technicalAnalysis: {
             summary: '',
@@ -776,16 +668,100 @@
             data4: '',
             data5: '',
             data6: '',
-            data7: ''
+            data7: '',
+            technicalItems: [
+              {
+                dimension: '技术创新',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '架构设计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '网络',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '技术难度',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '专利/开源',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '应用前景',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '开发进度',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '总计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              }
+            ]
           },
           regulatoryAnalysis: {
             summary: '',
             data1: '',
-            data2: ''
+            data2: '',
+            regulatory: [
+              {
+                dimension: '内部监管',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '外部监管',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '总计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              }
+            ]
           },
           PatternAnalysis: {
             summary: '',
-            data1: ''
+            data1: '',
+            patternItems: [
+              {
+                dimension: '盈利模式',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              },
+              {
+                dimension: '总计',
+                description: '',
+                total_project: '',
+                effective_score: ''
+              }
+            ]
           }
         }
       }
