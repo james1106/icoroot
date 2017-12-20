@@ -6,9 +6,6 @@ Vue.use(VueAxios, axios)
 
 var instance = axios.create()
 
-axios.defaults.baseURL = 'http://192.168.1.159:8080/icoroot/api'
-axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
-
 export default {
   localLogin: function (data) {
     return Vue.axios.post('/login', data)

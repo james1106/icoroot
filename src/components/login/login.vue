@@ -7,7 +7,7 @@
           <b-form-group id="exampleInputGroup1">
             <b-form-input id="exampleInput1"
                           type="email"
-                          v-model="form.email"
+                          v-model="user.email"
                           required
                           placeholder="请输入邮箱">
             </b-form-input>
@@ -15,13 +15,13 @@
           <b-form-group id="exampleInputGroup2">
             <b-form-input id="exampleInput2"
                           type="password"
-                          v-model="form.password"
+                          v-model="user.password"
                           required
                           placeholder="请输入密码">
             </b-form-input>
           </b-form-group>
           <b-form-group id="exampleGroup4">
-            <b-form-checkbox v-model="form.checked" id="exampleInput4">
+            <b-form-checkbox v-model="user.checked" id="exampleInput4">
               <span class="remember-password">
                 记住密码
               </span>
@@ -46,7 +46,7 @@
     },
     data () {
       return {
-        form: {
+        user: {
           email: '',
           password: ''
         },
@@ -56,8 +56,8 @@
     methods: {
       onSubmit (evt) {
         evt.preventDefault()
-        api.localLogin(this.user).then(function (response) {
-          if (response.data.type === true) {
+        api.localLogin(this.user).then((res) => {
+          if (res.data.code === 200) {
             window.location = '/'
           } else {
             alert('请输入正确的邮箱和密码')

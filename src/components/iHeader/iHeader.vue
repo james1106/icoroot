@@ -9,14 +9,14 @@
           <b-navbar-toggle target="nav_collapse" class="nav-toggle"></b-navbar-toggle>
           <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav class="ml-auto">
-              <b-nav-item right>
-                <router-link to="/">首页</router-link>
+              <b-nav-item right to="/">
+                首页
               </b-nav-item>
-              <b-nav-item right>
-                <router-link to="calendar">ICO日程表</router-link>
+              <b-nav-item right to="calendar">
+                ICO日程表
               </b-nav-item>
-              <b-nav-item right>
-                <router-link to="">推出你的ICO</router-link>
+              <b-nav-item right to="">
+                推出你的ICO
               </b-nav-item>
             </b-navbar-nav>
           </b-collapse>
@@ -40,7 +40,8 @@
       .navbar
         padding: 0
         .navbar-brand
-          display: inline-block;
+          display: block;
+          float left
           width: auto;
           height: 66px;
           line-height: 66px;

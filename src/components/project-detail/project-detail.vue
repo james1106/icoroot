@@ -47,7 +47,7 @@
               <b-row class="left-p">
                 <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹开始时间</b-col>
                 <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
-                  2017年11月17日 21时00分
+                  {{}}
                 </b-col>
               </b-row>
               <b-row class="left-p">
@@ -116,10 +116,9 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="detail.marketAnalysis.marketItems" :fields="fields"></b-table>
+                  <b-table :items="marketItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
-                  <div class="cha-jian" id="chartMarketContainer" _echarts_instance_="ec_1513216675202" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
                 </b-col>
               </b-row>
               <!-- 团队分析 -->
@@ -168,10 +167,9 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                  <b-table :items="teamItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
-                  <div class="col-sm-4 cha-jian" id="chartTeamContainer" _echarts_instance_="ec_1513216675201" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: rgb(255, 255, 255);"><div style="position: relative; overflow: hidden; width: 236px; height: 200px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="354" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 236px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
                 </b-col>
               </b-row>
               <!-- 技术分析 -->
@@ -189,10 +187,9 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                  <b-table :items="techItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
-                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartTechnologyContainer"></div>
                 </b-col>
               </b-row>
               <!-- 资金监管分析 -->
@@ -211,10 +208,9 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                  <b-table :items="superviseItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
-                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartMoneyContainer"></div>
                 </b-col>
               </b-row>
               <!-- 盈利模式分析 -->
@@ -233,10 +229,9 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="detail.teamAnalysis.teamItems" :fields="fields"></b-table>
+                  <b-table :items="profitItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
-                  <div class="col-sm-4 col-xs-12 cha-jian" id="chartGainContainer"></div>
                 </b-col>
               </b-row>
               <!-- 投资建议 -->
@@ -521,7 +516,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import IHeader from '@/components/iHeader/iHeader'
   import IFooter from '@/components/ifooter/ifooter'
   import Fix from '@/components/fix/fix'
@@ -535,6 +530,9 @@
     },
     data () {
       return {
+        project: {
+          id: 1
+        },
         fields: {
           dimension: {
             label: '维度'
@@ -549,219 +547,213 @@
             label: '有效得分'
           }
         },
-        detail: {
+        marketItems: [
+          {
+            dimension: '行业发展',
+            description: '',
+            total_project: '30分',
+            effective_score: ''
+          },
+          {
+            dimension: '市场份额',
+            description: '',
+            total_project: '30分',
+            effective_score: ''
+          },
+          {
+            dimension: '区块链创新及代币必要性',
+            description: '',
+            total_project: '40分',
+            effective_score: ''
+          },
+          {
+            dimension: '总计',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          }
+        ],
+        teamItems: [
+          {
+            dimension: '技术团队区块链项目经验',
+            description: '',
+            total_project: '15分',
+            effective_score: ''
+          },
+          {
+            dimension: '技术团队实力',
+            description: '',
+            total_project: '15分',
+            effective_score: ''
+          },
+          {
+            dimension: '技术团队完整性',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '运营团队实力',
+            description: '',
+            total_project: '15分',
+            effective_score: ''
+          },
+          {
+            dimension: '运营团队完整性',
+            description: '',
+            total_project: '15分',
+            effective_score: ''
+          },
+          {
+            dimension: '投资人',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '技术团队完整性',
+            description: '',
+            total_project: '20分',
+            effective_score: ''
+          },
+          {
+            dimension: '总计',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          }
+        ],
+        techItems: [
+          {
+            dimension: '技术创新',
+            description: '',
+            total_project: '20分',
+            effective_score: ''
+          },
+          {
+            dimension: '架构设计',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '网络',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '技术难度',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '专利/开源',
+            description: '',
+            total_project: '10分',
+            effective_score: ''
+          },
+          {
+            dimension: '应用前景',
+            description: '',
+            total_project: '20分',
+            effective_score: ''
+          },
+          {
+            dimension: '开发进度',
+            description: '',
+            total_project: '20分',
+            effective_score: ''
+          },
+          {
+            dimension: '总计',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          }
+        ],
+        superviseItems: [
+          {
+            dimension: '内部监管',
+            description: '',
+            total_project: '50分',
+            effective_score: ''
+          },
+          {
+            dimension: '外部监管',
+            description: '',
+            total_project: '50分',
+            effective_score: ''
+          },
+          {
+            dimension: '总计',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          }
+        ],
+        profitItems: [
+          {
+            dimension: '盈利模式',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          },
+          {
+            dimension: '总计',
+            description: '',
+            total_project: '100分',
+            effective_score: ''
+          }
+        ],
+        data: {
           projectOverview: {
-            projectName: '',
-            projectIntroduction: '',
             beginTime: '',
-            overTime: '',
-            icoTotal: '',
-            token_total: '',
-            prospectusUpperlimit: '',
-            tokenAccept: '',
-            tokenType: '',
+            id: '',
+            iocTotal: '',
             officialWebsite: '',
+            overTime: '',
             projectDescription: '',
-            rating: ''
+            projectIntroduction: '',
+            projectName: '',
+            prospectusUpperlimit: '',
+            rating: '',
+            tokenAccept: '',
+            tokenTotal: '',
+            tokenType: ''
           },
           marketAnalysis: {
-            summary: '',
             advantage: '',
             conclusion: '',
+            id: '',
             industryDevelop: '',
-            marketShare: '',
             innovate: '',
-            marketItems: [
-              {
-                dimension: '行业发展',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '市场份额',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '区块链创新及代币必要性',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '总计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              }
-            ]
+            marketShare: '',
+            summary: '',
+            data: ''
           },
           teamAnalysis: {
+            id: '',
             summary: '',
             conclusion: '',
-            data1: '',
-            data2: '',
-            data3: '',
-            data4: '',
-            data5: '',
-            data6: '',
-            data7: '',
-            teamItems: [
-              {
-                dimension: '技术团队区块链项目经验',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '技术团队实力',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '技术团队完整性',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '运营团队实力',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '运营团队完整性',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '投资人',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '技术团队完整性',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '总计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              }
-            ]
+            data: ''
           },
-          technicalAnalysis: {
+          techAnalysis: {
+            id: '',
             summary: '',
             conclusion: '',
-            data1: '',
-            data2: '',
-            data3: '',
-            data4: '',
-            data5: '',
-            data6: '',
-            data7: '',
-            technicalItems: [
-              {
-                dimension: '技术创新',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '架构设计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '网络',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '技术难度',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '专利/开源',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '应用前景',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '开发进度',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '总计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              }
-            ]
+            data: ''
           },
-          regulatoryAnalysis: {
+          superviseAnalysis: {
+            id: '',
             summary: '',
-            data1: '',
-            data2: '',
-            regulatory: [
-              {
-                dimension: '内部监管',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '外部监管',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '总计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              }
-            ]
+            data: ''
           },
-          PatternAnalysis: {
+          profitAnalysis: {
+            id: '',
             summary: '',
-            data1: '',
-            patternItems: [
-              {
-                dimension: '盈利模式',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              },
-              {
-                dimension: '总计',
-                description: '',
-                total_project: '',
-                effective_score: ''
-              }
-            ]
+            data: ''
           }
         }
       }
@@ -771,9 +763,38 @@
     },
     methods: {
       _getDetail: function () {
-        getDetail().then((res) => {
-          this.detail = res.data.detail
-          console.log(this.detail)
+        getDetail(this.project.id).then((res) => {
+          this.data = res.data.data
+          const marketStr = this.data.marketAnalysis.data
+          const teamStr = this.data.teamAnalysis.data
+          const techStr = this.data.techAnalysis.data
+          const superviseStr = this.data.superviseAnalysis.data
+          const profitStr = this.data.profitAnalysis.data
+          let marketArr = Array.from(marketStr.split('|'))
+          let teamArr = Array.from(teamStr.split('|'))
+          let techArr = Array.from(techStr.split('|'))
+          let superviseArr = Array.from(superviseStr.split('|'))
+          let profitArr = Array.from(profitStr.split('|'))
+          for (let i = 0; i < marketArr.length; i++) {
+            this.marketItems[i].description = marketArr[i].slice(3, -1)
+            this.marketItems[i].effective_score = marketArr[i].slice(0, 2)
+          }
+          for (let i = 0; i < teamArr.length; i++) {
+            this.teamItems[i].description = teamArr[i].slice(3, -1)
+            this.teamItems[i].effective_score = teamArr[i].slice(0, 2)
+          }
+          for (let i = 0; i < techArr.length; i++) {
+            this.techItems[i].description = techArr[i].slice(3, -1)
+            this.techItems[i].effective_score = techArr[i].slice(0, 2)
+          }
+          for (let i = 0; i < superviseArr.length; i++) {
+            this.superviseItems[i].description = superviseArr[i].slice(3, -1)
+            this.superviseItems[i].effective_score = superviseArr[i].slice(0, 2)
+          }
+          for (let i = 0; i < profitArr.length; i++) {
+            this.profitItems[i].description = profitArr[i].slice(3, -1)
+            this.profitItems[i].effective_score = profitArr[i].slice(0, 2)
+          }
         })
       }
     }

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Detail from '@/components/detail/detail'
+import Project from '@/components/project/project'
+import ProjectDetail from '@/components/project-detail/project-detail'
 import Homepage from '@/components/homepage/homepage'
 import Calendar from '@/components/calendar/calendar'
 import Launch from '@/components/launch/launch'
@@ -22,9 +23,13 @@ export default new Router({
       component: Homepage
     },
     {
-      path: '/detail',
-      name: 'detail',
-      component: Detail
+      path: '/project',
+      name: 'project',
+      component: Project
+    },
+    {
+      path: '/project/:id',
+      component: ProjectDetail
     },
     {
       path: '/calendar',

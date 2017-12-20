@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="goTop icon-chevron-up"></div>
+    <div class="goTop icon-chevron-up" v-show="isShow" @click="getTop"></div>
   </div>
 </template>
 
@@ -34,10 +34,12 @@
   export default {
     data () {
       return {
-        showChat: false
+        showChat: false,
+        isShow: false,
+        target: ''
       }
-    }
-    /* props: {
+    },
+    props: {
       scrollmyself: {
         type: Boolean,
         default: false
@@ -81,7 +83,7 @@
     },
     beforeDestroy () {
       this.target.removeEventListener('scroll', this.showIcon)
-    } */
+    }
   }
 </script>
 

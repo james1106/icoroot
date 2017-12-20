@@ -85,7 +85,7 @@
           this.error = '邮箱不得为空'
         } else {
           api.localReg(this.user).then(function () {
-            alert('登录成功')
+            alert('注册成功')
           })
           .catch(function (error) {
             console.log(error)
