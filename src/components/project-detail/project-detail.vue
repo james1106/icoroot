@@ -767,6 +767,9 @@
     },
     methods: {
       _getDetail: function () {
+        if (!this.project.id) {
+          this.$router.push('/')
+        }
         api.getDetail(this.project.id).then((res) => {
           this.data = res.data.data
           const marketStrObj = String(this.data.marketAnalysis.data)
@@ -780,23 +783,23 @@
           const superviseArr = superviseStrObj.split('|')
           const profitArr = profitStrObj.split('|')
           for (let i = 0; i < marketArr.length; i++) {
-            this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&')+1, -1)
+            this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&') + 1, -1)
             this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&'))
           }
           for (let i = 0; i < teamArr.length; i++) {
-            this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&')+1, -1)
+            this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&') + 1, -1)
             this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&'))
           }
           for (let i = 0; i < techArr.length; i++) {
-            this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&')+1, -1)
+            this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&') + 1, -1)
             this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&'))
           }
           for (let i = 0; i < superviseArr.length; i++) {
-            this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&')+1, -1)
+            this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&') + 1, -1)
             this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&'))
           }
           for (let i = 0; i < profitArr.length; i++) {
-            this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&')+1, -1)
+            this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&') + 1, -1)
             this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&'))
           }
         })

@@ -12,7 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './common/stylus/index.styl'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://192.168.1.103:8080'
+axios.defaults.baseURL = 'http://39.108.117.192:80'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 Vue.use(BootstrapVue)
@@ -26,8 +26,5 @@ new Vue({
   router,
   template: '<App/>',
   components: { App },
-  store,
-  data: {
-    selectPro: new Vue()
-  }
+  store
 })

@@ -141,8 +141,7 @@
       },
       _getHomepage: function () {
         api.getHomepage().then((res) => {
-          this.data = res.data
-          console.log(res.data)
+          this.data = Array.from(res.data.data)
         })
       }
     }

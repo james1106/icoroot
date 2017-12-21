@@ -39,12 +39,6 @@
         target: ''
       }
     },
-    props: {
-      scrollmyself: {
-        type: Boolean,
-        default: false
-      }
-    },
     methods: {
       addhoverClass (e) {
         if (e.type === 'mouseover') {
@@ -54,12 +48,14 @@
         }
       },
       showIcon () {
-        if (this.target.scrollTop > 100) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        if (scrollTop > 100) {
           this.isShow = true
           this.$el.addEventListener('mouseover', this.addhoverClass)
           this.$el.addEventListener('mouseout', this.addhoverClass)
         } else if (this.target.scrollTop < 100) {
           this.isShow = false
+          console.log(1)
         }
       },
       getTop () {
@@ -74,15 +70,15 @@
       }
     },
     mounted () {
-      if (this.scrollmyself) {
-        this.target = this.$el.parentNode
-      } else {
-        this.target = document.body
-      }
-      this.target.addEventListener('scroll', this.showIcon)
+      this.$nextTick(() => {
+        this.target = window || document.body || document.documentElement
+        this.target.addEventListener('scroll', this.showIcon())
+      })
     },
     beforeDestroy () {
-      this.target.removeEventListener('scroll', this.showIcon)
+      this.$nextTick(() => {
+        this.target.removeEventListener('scroll', this.showIcon())
+      })
     }
   }
 </script>
