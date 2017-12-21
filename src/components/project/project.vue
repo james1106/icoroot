@@ -1,13 +1,13 @@
 <template>
   <div>
     <b-row align-h="center" class="row">
-      <b-col md="3" sm="6" xs="12" class="box" @select="selectProject" v-for="item in projects" :key="item.id">
+      <b-col md="3" sm="6" xs="12" class="box" v-for="item in items" :key="item.id">
         <div class="box-cont">
           <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
-            <a href="/project/1">
+            <a @click="selectProject(item.id, item)">
               <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
             </a>
-            <a href="/project/1">
+            <a @click="selectProject(item.id, item)">
               <div class="fenshu">
                 <span class="sp1">评级</span>
                 <span class="sp2">77.0</span>
@@ -33,31 +33,28 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
+
   export default {
     props: {
-      type: Array,
-      defalut: ''
+      items: {
+        type: Array,
+        default: ''
+      }
     },
     data () {
-      return {
-        projects: [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          {}
-        ]
-      }
+      return {}
     },
     methods: {
-      selectProject (project) {
+      selectProject (id, item) {
+        this.setProject(item)
         this.$router.push({
-          path: `/project/${project.id}`
+          path: `/project/${id}`
         })
-      }
+      },
+      ...mapMutations({
+        setProject: 'SET_PROJECT'
+      })
     }
   }
 </script>

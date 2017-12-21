@@ -38,7 +38,7 @@
 
 <script type="text/ecmascript-6">
   import Sign from '@/components/sign/sign'
-  import api from '../../api/login'
+  import api from '../../api/index'
 
   export default {
     components: {

@@ -47,13 +47,13 @@
               <b-row class="left-p">
                 <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹开始时间</b-col>
                 <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
-                  {{}}
+                  {{data.projectOverview.beginTime}}
                 </b-col>
               </b-row>
               <b-row class="left-p">
                 <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹结束时间</b-col>
                 <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
-                  2017年11月30日 21时00分
+                  {{data.projectOverview.overtime}}
                 </b-col>
               </b-row>
               <b-row class="left-p">
@@ -90,7 +90,7 @@
               <b-row class="left-p">
                 <b-col lg="2" md="2" sm="2" cols="12" class="left-span">项目说明</b-col>
                 <b-col class="p-state" lg="10" md="10" sm="10" cols="12">
-                  <p>参投前请先阅读GNX代币购买协议&nbsp; <a href="https://genaro.network/en/documentation/agreement" target="_blank">https://genaro.network/en/documentation/agreement</a></p><p>Genaro旨在建立一站式区块链技术的去中心化存储网络和完整的公链，缔造区块链3.0存储生态，为DAPP开发者搭建一个底层平台。区块链1.0时代，比特币构造了去中心化存储账本，区块链2.0时代，以太坊构造了去中心化执行智能合约，区块链3.0，去中心化存储大数据。用户数据被分割、加密并随机分配到不同节点进行多次备份，只有具备私钥才能进行解锁，提升了存储的安全性（避免盗窃、丢失）；多节点存储使数据可以随时被调用；就近存储保证了调用速度，更加高效；竞争性的存储市场降低了存储成本。相对传统中心化云存储，Genaro更加安全、高效、经济，只有当区块链有能力处理现实世界中海量的数据的时候，区块链才能真正得到大范围的应用。</p><p><br></p>
+                  {{data.marketAnalysis.projectDescription}}
                 </b-col>
               </b-row>
             </div>
@@ -106,12 +106,12 @@
                 一. 市场分析
               </div>
               <div class="left-p left-p1 font1">
-                <p><strong>概述</strong></p><p>近年来，随着互联网技术及全球信息的爆炸式增长，云计算技术开始崭露头角。2016年，全球公共云服务市场规模约2100 亿美元，较 2015年 的 1750 亿美元增长 20%。2017年市场规模有望达到2500亿美元，其中发展速度最快的是 IaaS（基础架构即服务）。2016年，亚马逊网络服务AWS总收入达到122亿美元，国内阿里云的基础构架即服务营业收入达到5.88亿美元。随着大数据时代的来临，云存储作为IaaS的主要组成部分，市场需求日益高涨，行业处于快速发展期。</p><p><strong>市场痛点</strong></p><p>1、安全</p><p>虽然存储云端化已经成为主要趋势，但仍然有很多公司和个人对其心存疑虑，安全始终是他们最关心的问题。中心化的存储方案中，安全隐患不仅来自外部攻击，更来自服务商可以随意访问你的数据和资料。就算某些服务商宣称提供加密服务，但密钥仍然被其掌握。个人对资料进行加密后再上传云端，虽然能有效提升资料安全性，但有一定的技术门槛，并且费时费力。就算诸君不畏艰难手动加密，也仍然存在因行政命令关闭存储服务的可能。</p><p>去中心化的存储可以有效解决安全问题。所有资料被分割、加密并随机分配到不同节点进行多次备份，没有你的私人秘钥任何人都不能读取或改写你的数据，基本杜绝了机密数据被黑客盗取的可能。不存在中心服务器，私钥自己掌握，也就不存在服务商监守自盗的问题。分布式存储+多重备份，政府机构也无法通过关停服务器来销毁数据。</p><p>2、效率</p><p>云存储的特质就是可以随时随地的快速调取数据，提升效率。Genaro的解决方案表示多节点多备份储存可以保证任何时刻都可以检索并下载数据，同时，Genaro会自动搜索距离最近的节点存储数据，保证传输效率。但需要指出的是，白皮书中并未涉及如何确定备份数以确保数据的永久可用性，对于上传和下载效率是否能超越传统中心化存储也缺乏实际的证明。</p><p>3、经济性</p><p>Genaro开拓了一个允许完全竞争的去中心化存储市场，人人都能通过分享未使用的存储空间来赚取奖励，该部分容量远超Google Drive、Dropbox、阿里云这样的云服务公司的容量总和，因此可能会带来较为低廉的存储价格。</p><p>在存储解决方案中，Genaro与现有的去中心化存储项目（Sia、Storj以及IPFS等）相比，大部分这些去中心化项目并没有自己的公链，使用者只能用它来存储空间但是不能直接在智能合约上进行开发，而是必须借助其他的链上写智能合约，Genaro提供的是一站式的解决方案，节省开发人员的时间，使得该公链存储的效率更高。</p><p>未来很长一段时间内，去中心化存储的发展重点还是如何提升性能以抢占中心化存储的市场。另外，Genaro立志为DAPP开发者搭建一个底层平台，解决现有区块链无法处理大数据的问题，缔造区块链3.0存储生态。但以目前的软硬件能力，大数据上链仍然需要长时间的技术研发和积累。</p><p><strong>小结</strong></p><p>Genaro旨在建立一个基于区块链技术的去中心化存储网络。与中心化存储相比，运用区块链技术能够有效解决数据存储安全问题，与同类项目相比现有的去中心化存储项目（Sia、Storj以及IPFS等），Genaro提供的是一站式的解决方案既可以用于存储也可以在合约公链上进行开发，效率有较大提升，优先选择近距离节点，读取效率比IPFS更高。</p>
+                <p><strong>概述</strong></p><p>{{data.marketAnalysis.summary}}</p><p><strong>项目优势</strong></p><p>{{data.marketAnalysis.advantage}}</p><p><strong>小结</strong></p><p>{{data.marketAnalysis.conclusion}}</p>
               </div>
               <div class="left-p left-p1 font1">
                 <h4 class="font1">市场评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：89分</span>
+                  <span>有效得分：{{marketItems[3].effective_score}}</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -156,13 +156,13 @@
                 </dl>
               </div>
               <div class="left-p left-p1 font1">
-                <p><strong>概述</strong></p><p>Larry Liu：原硅谷科技公司Sendbloom联合创始人，2015年独立开发基于区块链的跨境转账钱包，前HP安全工程师。</p><p>Waylon Wu：首席技术官，2015年于硅谷联合创办贸易行业科技公司Rum Tech。同年在以太坊进行DAPP的开发。</p><p>Andrea Liu：首席运营官，联合创办社会企业“乐豪斯”以及企业咨询公司“ICT Learning”。</p><p>Jason Inch：战略总监，20年科技行业的高管和企业家，对于中国经济有自己的见解，出版过中国经济相关书籍。</p><p><strong>小结</strong></p><p>技术团队大多来自谷歌，具备一定区块链开发经验和大数据、云存储技术背景，技术能力较为全面。运营团队此次新增较多社会推广人员，此前在区块链行业、数字行业均有较为丰富的经验。投资人包括分布式资本等业内知名机构，对于项目热度有一定吸引力。</p>
+                <p><strong>概述</strong></p><p>{{data.teamAnalysis.summary}}</p><p><strong>小结</strong></p><p>{{data.teamAnalysis.conclusion}}</p>
               </div>
 
               <div class="left-p left-p1 font1">
                 <h4 class="font1">团队评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：81分</span>
+                  <span>有效得分：{{teamItems[7].effective_score}}<</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -182,7 +182,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">技术评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：68分</span>
+                  <span>有效得分：{{techItems[7].effective_score}}</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -197,13 +197,13 @@
                 四. 资金监管分析
               </div>
               <div class="left-p left-p1 font2">
-                <p><strong>概述&nbsp;&nbsp;&nbsp;&nbsp;</strong></p><p>项目白皮书披露了资金分配计划，已经在新加坡注册了基金会，用于整体管理架构。</p><p><br></p>
+                <p><strong>概述&nbsp;&nbsp;&nbsp;&nbsp;</strong></p><p>{{data.superviseAnalysis.summary}}</p><p><br></p>
               </div>
 
               <div class="left-p left-p1 font1">
                 <h4 class="font1">资金监管评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：45分</span>
+                  <span>有效得分：{{superviseItems[2].effective_score}}</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -218,7 +218,7 @@
                 五. 盈利模式分析
               </div>
               <div class="left-p left-p1 font2">
-                <p><strong>概述</strong></p><p>所有收益来自存储用户使用空间支付的费用，Genaro代币在这一过程中作为交易媒介。随交易规模不断增加，代币价值可能提升。因此，投资人盈利与否与项目运营推广息息相关。</p><p><br></p>
+                <p><strong>概述</strong></p><p>{{data.profitAnalysis.summary}}</p><p><br></p>
               </div>
 
               <div class="left-p left-p1 font1">
@@ -517,10 +517,11 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { mapGetters } from 'vuex'
   import IHeader from '@/components/iHeader/iHeader'
   import IFooter from '@/components/ifooter/ifooter'
   import Fix from '@/components/fix/fix'
-  import { getDetail } from '../../api/detail'
+  import api from '../../api/index'
 
   export default {
     components: {
@@ -530,9 +531,7 @@
     },
     data () {
       return {
-        project: {
-          id: 1
-        },
+        id: '',
         fields: {
           dimension: {
             label: '维度'
@@ -761,39 +760,44 @@
     created () {
       this._getDetail()
     },
+    computed: {
+      ...mapGetters([
+        'project'
+      ])
+    },
     methods: {
       _getDetail: function () {
-        getDetail(this.project.id).then((res) => {
+        api.getDetail(this.project.id).then((res) => {
           this.data = res.data.data
-          const marketStr = this.data.marketAnalysis.data
-          const teamStr = this.data.teamAnalysis.data
-          const techStr = this.data.techAnalysis.data
-          const superviseStr = this.data.superviseAnalysis.data
-          const profitStr = this.data.profitAnalysis.data
-          let marketArr = Array.from(marketStr.split('|'))
-          let teamArr = Array.from(teamStr.split('|'))
-          let techArr = Array.from(techStr.split('|'))
-          let superviseArr = Array.from(superviseStr.split('|'))
-          let profitArr = Array.from(profitStr.split('|'))
+          const marketStrObj = String(this.data.marketAnalysis.data)
+          const teamStrObj = String(this.data.teamAnalysis.data)
+          const techStrObj = String(this.data.techAnalysis.data)
+          const superviseStrObj = String(this.data.superviseAnalysis.data)
+          const profitStrObj = String(this.data.profitAnalysis.data)
+          const marketArr = marketStrObj.split('|')
+          const teamArr = teamStrObj.split('|')
+          const techArr = techStrObj.split('|')
+          const superviseArr = superviseStrObj.split('|')
+          const profitArr = profitStrObj.split('|')
           for (let i = 0; i < marketArr.length; i++) {
-            this.marketItems[i].description = marketArr[i].slice(3, -1)
-            this.marketItems[i].effective_score = marketArr[i].slice(0, 2)
+            this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&')+1, -1)
+            this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&'))
           }
           for (let i = 0; i < teamArr.length; i++) {
-            this.teamItems[i].description = teamArr[i].slice(3, -1)
-            this.teamItems[i].effective_score = teamArr[i].slice(0, 2)
+            this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&')+1, -1)
+            this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&'))
           }
           for (let i = 0; i < techArr.length; i++) {
-            this.techItems[i].description = techArr[i].slice(3, -1)
-            this.techItems[i].effective_score = techArr[i].slice(0, 2)
+            this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&')+1, -1)
+            this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&'))
           }
           for (let i = 0; i < superviseArr.length; i++) {
-            this.superviseItems[i].description = superviseArr[i].slice(3, -1)
-            this.superviseItems[i].effective_score = superviseArr[i].slice(0, 2)
+            this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&')+1, -1)
+            this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&'))
           }
           for (let i = 0; i < profitArr.length; i++) {
-            this.profitItems[i].description = profitArr[i].slice(3, -1)
-            this.profitItems[i].effective_score = profitArr[i].slice(0, 2)
+            this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&')+1, -1)
+            this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&'))
           }
         })
       }

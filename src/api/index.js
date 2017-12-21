@@ -19,5 +19,11 @@ export default {
   localEmail: function (data) {
     console.log(data)
     return Vue.axios.post('/emailSend', data)
+  },
+  getDetail: function (id) {
+    return Vue.axios.get(`/project/${id}`)
+  },
+  getHomepage: function () {
+    return Vue.axios.get('/project')
   }
 }

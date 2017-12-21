@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
+import store from './store'
 import router from './router'
 import ECharts from 'vue-echarts/components/ECharts.vue'
 import axios from 'axios'
@@ -11,7 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './common/stylus/index.styl'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://39.108.117.192:8080'
+axios.defaults.baseURL = 'http://192.168.1.103:8080'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 Vue.use(BootstrapVue)
@@ -24,5 +25,9 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  store,
+  data: {
+    selectPro: new Vue()
+  }
 })

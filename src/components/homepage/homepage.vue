@@ -62,7 +62,7 @@
             <span class="p-spn2">查看更多</span>
           </a>
         </p>
-        <Project :items="this.data.project"></Project>
+        <Project :items="this.data"></Project>
         <p class="underway-p">
           进行中的项目
         </p>
@@ -81,7 +81,7 @@
   import Fix from '@/components/fix/fix'
   import Project from '@/components/project/project'
   import CalendarList from '@/components/calendarList/calendarList.vue'
-  import { getHomepage } from '../../api/homepage'
+  import api from '../../api/index'
 
   export default {
     components: {
@@ -95,11 +95,38 @@
       return {
         slide: 0,
         sliding: null,
-        data: {
-          slide: '',
-          project: '',
-          doingProject: ''
-        }
+        data: [
+          {
+            beginTime: null,
+            id: 1,
+            iocTotal: '',
+            officialWebsite: '',
+            overTime: null,
+            projectDescription: '',
+            projectIntroduction: '',
+            projectName: '',
+            prospectusUpperlimit: '',
+            rating: '5',
+            tokenAccept: '',
+            tokenTotal: '',
+            tokenType: ''
+          },
+          {
+            beginTime: null,
+            id: 2,
+            iocTotal: '',
+            officialWebsite: '',
+            overTime: null,
+            projectDescription: '',
+            projectIntroduction: '',
+            projectName: '',
+            prospectusUpperlimit: '',
+            rating: '5',
+            tokenAccept: '',
+            tokenTotal: '',
+            tokenType: ''
+          }
+        ]
       }
     },
     created () {
@@ -113,7 +140,7 @@
         this.sliding = false
       },
       _getHomepage: function () {
-        getHomepage().then((res) => {
+        api.getHomepage().then((res) => {
           this.data = res.data
           console.log(res.data)
         })
