@@ -32,6 +32,12 @@
 
 <script>
   export default {
+    props: {
+      scrollmyself: {
+        type: Boolean,
+        default: false
+      }
+    },
     data () {
       return {
         showChat: false,
@@ -48,21 +54,19 @@
         }
       },
       showIcon () {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-        if (scrollTop > 100) {
+        if (this.target.pageYOffset > 100) {
           this.isShow = true
           this.$el.addEventListener('mouseover', this.addhoverClass)
           this.$el.addEventListener('mouseout', this.addhoverClass)
-        } else if (this.target.scrollTop < 100) {
+        } else {
           this.isShow = false
-          console.log(1)
         }
       },
       getTop () {
         let timer = setInterval(() => {
-          let top = this.target.scrollTop
+          let top = this.target.pageYOffset
           let speed = Math.ceil(top / 5)
-          this.target.scrollTop = top - speed
+          this.target.pageYOffset = top - speed
           if (top === 0) {
             clearInterval(timer)
           }
@@ -70,14 +74,13 @@
       }
     },
     mounted () {
-      this.$nextTick(() => {
-        this.target = window || document.body || document.documentElement
-        this.target.addEventListener('scroll', this.showIcon())
-      })
+      this.target = window
+      this.target.addEventListener('scroll', this.showIcon)
     },
     beforeDestroy () {
       this.$nextTick(() => {
-        this.target.removeEventListener('scroll', this.showIcon())
+        this.target = document.body
+        this.target.removeEventListener('scroll', this.showIcon)
       })
     }
   }
@@ -193,6 +196,21 @@
     background-color: #E2E2E2;
     border-radius: 50%;
     color: #A6A2AC;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 110px;
+    z-index: 333;
+    opacity: 0.5;
+    display: block;
+  .hover
+    width: 40px;
+    height: 40px;
+    background-color #000
+    border-radius: 50%;
+    color: #fff;
     font-size: 20px;
     text-align: center;
     line-height: 40px;

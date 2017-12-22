@@ -76,8 +76,8 @@
   </div>
 </template>
 <script>
-  import IHeader from '@/components/iHeader/iHeader'
-  import IFooter from '@/components/ifooter/ifooter'
+  import IHeader from '@/components/header/iHeader'
+  import IFooter from '@/components/footer/iFooter'
   import Fix from '@/components/fix/fix'
   import Project from '@/components/project/project'
   import CalendarList from '@/components/calendarList/calendarList.vue'

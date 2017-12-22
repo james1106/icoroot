@@ -28,16 +28,44 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .footer-fluid
     background-color #fff
+    height 110px;
     .row
       margin 0
       .foot-tip
         padding: 0
+        display flex
+  @media (min-width: 1200px)
+    .foot-login
+      float: left;
+      width: 30%;
+      margin-top: 40px;
+      padding-left: 70px;
+      li
+        .foot-a
+          .img-2
+            display: inline-block;
+            width: 100px;
+            height: 35px;
+    .foot-us
+      float: left;
+      width: 70%;
+      margin-top: 45px;
+      li
+        float: right;
+        height: 19px;
+        width: 105px;
+        line-height: 20px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: regular;
+        cursor: pointer;
+        a
+          color: #5D5D5D;
   @media (max-width: 767px) and (min-width: 0px)
     .foot-login
       height: 40px;
-      margin-top: 20px;
+      margin: 20px auto 15px;
       padding-left: 0px;
-      margin-bottom: 15px;
       overflow: hidden;
       li
         height: 40px;

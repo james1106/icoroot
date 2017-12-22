@@ -518,8 +518,8 @@
 
 <script type="text/ecmascript-6">
   import { mapGetters } from 'vuex'
-  import IHeader from '@/components/iHeader/iHeader'
-  import IFooter from '@/components/ifooter/ifooter'
+  import IHeader from '@/components/header/iHeader'
+  import IFooter from '@/components/footer/iFooter'
   import Fix from '@/components/fix/fix'
   import api from '../../api/index'
 
