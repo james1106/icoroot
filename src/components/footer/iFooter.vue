@@ -34,33 +34,32 @@
       .foot-tip
         padding: 0
         display flex
-  @media (min-width: 1200px)
-    .foot-login
-      float: left;
-      width: 30%;
-      margin-top: 40px;
-      padding-left: 70px;
-      li
-        .foot-a
-          .img-2
-            display: inline-block;
-            width: 100px;
-            height: 35px;
-    .foot-us
-      float: left;
-      width: 70%;
-      margin-top: 45px;
-      li
-        float: right;
-        height: 19px;
-        width: 105px;
-        line-height: 20px;
-        font-size: 14px;
-        text-align: center;
-        font-weight: regular;
-        cursor: pointer;
-        a
-          color: #5D5D5D;
+      .foot-login
+        float: left;
+        width: 30%;
+        margin-top: 40px;
+        padding-left: 70px;
+        li
+          .foot-a
+            .img-2
+              display: inline-block;
+              width: 100px;
+              height: 35px;
+      .foot-us
+        float: left;
+        width: 70%;
+        margin-top: 45px;
+        li
+          float: right;
+          height: 19px;
+          width: 105px;
+          line-height: 20px;
+          font-size: 14px;
+          text-align: center;
+          font-weight: regular;
+          cursor: pointer;
+          a
+            color: #5D5D5D;
   @media (max-width: 767px) and (min-width: 0px)
     .foot-login
       height: 40px;

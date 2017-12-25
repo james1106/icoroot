@@ -16,7 +16,7 @@
           </div>
           <div class="box-bottom">
             <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-            <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">旨在链接区块链和现实商业，帮助大众在更多的商业场景中使用区块链带来的更高的商业效率，为现实世界的商业场景提供智能合约服务</p></a>
+            <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">{{item.projectDescription}}</p></a>
 
             <p class="box-p3">
               于 2017-12-05 15:00:00 结束

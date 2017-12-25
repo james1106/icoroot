@@ -1,6 +1,6 @@
 <template>
   <div class="fix">
-    <div class="chat icon-message-square" @click="showChat = !showChat"></div>
+    <div class="chat icon-message-square" @click="showChat = !showChat" ref="chat"></div>
     <div class="chat-box" v-show="showChat">
       <p class="chat-title-p" id="chatMove" style="cursor:move;" draggable="true">
         <span class="name-color1" style="font-size: 14px;color: #00CC95;float: left;margin-left: 10px;" id="displayGuestName">游客FMCUL5F2BA</span>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="goTop icon-chevron-up" v-show="isShow" @click="getTop"></div>
+    <div class="goTop icon-chevron-up" v-show="isShow" @click="getTop" ref="top"></div>
   </div>
 </template>
 
@@ -46,36 +46,45 @@
       }
     },
     methods: {
-      addhoverClass (e) {
+      addchathoverClass (e) {
         if (e.type === 'mouseover') {
-          this.$el.classList.add('hover')
+          this.$refs.chat.classList.add('chatHover')
         } else if (e.type === 'mouseout') {
-          this.$el.classList.remove('hover')
+          this.$refs.chat.classList.remove('chatHover')
+        }
+      },
+      addtophoverClass (e) {
+        if (e.type === 'mouseover') {
+          this.$refs.top.classList.add('topHover')
+        } else if (e.type === 'mouseout') {
+          this.$refs.top.classList.remove('topHover')
         }
       },
       showIcon () {
         if (this.target.pageYOffset > 100) {
           this.isShow = true
-          this.$el.addEventListener('mouseover', this.addhoverClass)
-          this.$el.addEventListener('mouseout', this.addhoverClass)
+          this.$refs.top.addEventListener('mouseover', this.addtophoverClass)
+          this.$refs.top.addEventListener('mouseout', this.addtophoverClass)
         } else {
           this.isShow = false
         }
       },
       getTop () {
+        let top = document.body.scrollTop
         let timer = setInterval(() => {
-          let top = this.target.pageYOffset
           let speed = Math.ceil(top / 5)
-          this.target.pageYOffset = top - speed
-          if (top === 0) {
-            clearInterval(timer)
-          }
+          document.body.scrollTop = top - speed
         }, 20)
+        if (top === 0) {
+          clearInterval(timer)
+        }
       }
     },
     mounted () {
       this.target = window
       this.target.addEventListener('scroll', this.showIcon)
+      this.$refs.chat.addEventListener('mouseover', this.addchathoverClass)
+      this.$refs.chat.addEventListener('mouseout', this.addchathoverClass)
     },
     beforeDestroy () {
       this.$nextTick(() => {
@@ -89,17 +98,20 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .chat
     font-size: 20px;
-    color: #fff;
     width: 40px;
     height: 40px;
+    background-color: #E2E2E2
     border-radius: 50%;
+    color: #A6A2AC;
     text-align: center;
     line-height: 40px;
     position: fixed;
     right: 20px;
     bottom: 165px;
     z-index: 333;
-    background-color: #E5E5E5;
+  .chatHover
+    color: #fff;
+    background-color: #666
   .chat-box
     display: block;
     width: 600px;
@@ -205,21 +217,9 @@
     z-index: 333;
     opacity: 0.5;
     display: block;
-  .hover
-    width: 40px;
-    height: 40px;
-    background-color #000
-    border-radius: 50%;
+  .topHover
+    background-color #666
     color: #fff;
-    font-size: 20px;
-    text-align: center;
-    line-height: 40px;
-    position: fixed;
-    right: 20px;
-    bottom: 110px;
-    z-index: 333;
-    opacity: 0.5;
-    display: block;
   @media (max-width: 767px) and (min-width: 0px)
     .chat-box
       width: 100%;
