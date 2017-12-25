@@ -70,14 +70,15 @@
         }
       },
       getTop () {
-        let top = document.body.scrollTop
+        /* let top = document.body.scrollTop
         let timer = setInterval(() => {
           let speed = Math.ceil(top / 5)
           document.body.scrollTop = top - speed
         }, 20)
         if (top === 0) {
           clearInterval(timer)
-        }
+        } */
+        document.body.scrollTop = 0
       }
     },
     mounted () {
