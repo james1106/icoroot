@@ -10,13 +10,15 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './common/stylus/index.styl'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/chart/pie'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://39.108.117.192:80'
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.baseURL = 'http://192.168.1.156:8080'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 Vue.use(BootstrapVue)
-Vue.component('chart', ECharts)
+Vue.component('pie', ECharts)
 
 Vue.config.productionTip = false
 

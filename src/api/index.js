@@ -25,5 +25,8 @@ export default {
   },
   getHomepage: function () {
     return Vue.axios.get('/project')
+  },
+  writeInfo: function (data) {
+    return Vue.axios.post('/projectPut', data)
   }
 }

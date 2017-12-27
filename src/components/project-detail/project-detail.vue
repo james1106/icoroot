@@ -30,7 +30,7 @@
           <b-col sm="3" cols="12" right class="box-rating">
             <div class="sm-right font2" id="background-image" style="display: block;">
               <span class="right-span1">RATING</span>
-              <span class="right-span2">74.0</span>
+              <span class="right-span2">{{data.projectOverview.rating}}</span>
             </div>
           </b-col>
         </b-row>
@@ -53,7 +53,7 @@
               <b-row class="left-p">
                 <b-col class="left-span" lg="2" md="2" sm="12" cols="12">众筹结束时间</b-col>
                 <b-col class="right-span" lg="10" md="10" sm="12" cols="12">
-                  {{data.projectOverview.overtime}}
+                  {{data.projectOverview.overTime}}
                 </b-col>
               </b-row>
               <b-row class="left-p">
@@ -65,24 +65,24 @@
                       <td>代币总量</td>
                     </tr>
                     <tr class="tab-tr">
-                      <td>2.17亿</td>
-                      <td>7亿</td>
+                      <td>{{data.projectOverview.iocTotal}}</td>
+                      <td>{{data.projectOverview.tokenTotal}}</td>
                     </tr>
                     <tr class="active">
                       <td>募资上限</td>
                       <td>接受币种</td>
                     </tr>
                     <tr class="tab-tr">
-                      <td>20000000美金</td>
-                      <td>ETH</td>
+                      <td>{{data.projectOverview.prospectusUpperlimit}}</td>
+                      <td>{{data.projectOverview.tokenAccept}}</td>
                     </tr>
                     <tr class="active">
                       <td>代币类型</td>
                       <td>官网</td>
                     </tr>
                     <tr class="tab-tr">
-                      <td>自建公链</td>
-                      <td><a class="url" href="https://genaro.network" target="_blank">https://genaro.network</a></td>
+                      <td>{{data.projectOverview.tokenType}}</td>
+                      <td><a class="url" :href=data.projectOverview.officialWebsite target="_blank">{{data.projectOverview.officialWebsite}}</a></td>
                     </tr>
                     </tbody></table>
                 </b-col>
@@ -111,7 +111,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">市场评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：{{marketItems[3].effective_score}}</span>
+                  <span>有效得分：{{data.projectOverview.rating}}分</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -119,6 +119,7 @@
                   <b-table :items="marketItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
+                  <pie :options="marketOptions"></pie>
                 </b-col>
               </b-row>
               <!-- 团队分析 -->
@@ -162,7 +163,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">团队评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：{{teamItems[7].effective_score}}<</span>
+                  <span>有效得分：{{teamItems[7].effective_score}} 分</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -170,6 +171,7 @@
                   <b-table :items="teamItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
+                  <pie :options="teamOptions"></pie>
                 </b-col>
               </b-row>
               <!-- 技术分析 -->
@@ -182,7 +184,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">技术评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：{{techItems[7].effective_score}}</span>
+                  <span>有效得分：{{techItems[7].effective_score}}分</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -190,6 +192,7 @@
                   <b-table :items="techItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
+                  <pie :options="techOptions"></pie>
                 </b-col>
               </b-row>
               <!-- 资金监管分析 -->
@@ -203,7 +206,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">资金监管评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：{{superviseItems[2].effective_score}}</span>
+                  <span>有效得分：{{superviseItems[2].effective_score}}分</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -211,6 +214,7 @@
                   <b-table :items="superviseItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
+                  <pie :options="superviseOptions"></pie>
                 </b-col>
               </b-row>
               <!-- 盈利模式分析 -->
@@ -224,7 +228,7 @@
               <div class="left-p left-p1 font1">
                 <h4 class="font1">盈利模式评分参数
                   <span>总分：100分</span>
-                  <span>有效得分：70分</span>
+                  <span>有效得分：{{profitItems[1].effective_score}}分</span>
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
@@ -232,6 +236,7 @@
                   <b-table :items="profitItems" :fields="fields"></b-table>
                 </b-col>
                 <b-col lg="4" md="4" sm="4" cols="12">
+                  <pie :options="profitOptions"></pie>
                 </b-col>
               </b-row>
               <!-- 投资建议 -->
@@ -253,43 +258,43 @@
                     <td style="width: 10px;background-color: #36BBD2;"></td>
                     <td>市场评分</td>
                     <td>20%</td>
-                    <td>89 分</td>
-                    <td>17.8 分</td>
+                    <td>{{marketItems[3].effective_score}} 分</td>
+                    <td>{{score.marketScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #3D586A;"></td>
                     <td>团队评分</td>
                     <td>30%</td>
-                    <td>81 分</td>
-                    <td>24.3 分</td>
+                    <td>{{teamItems[7].effective_score}} 分</td>
+                    <td>{{score.teamScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #85C225;"></td>
                     <td>技术评分</td>
                     <td>30%</td>
-                    <td>68 分</td>
-                    <td>20.4 分</td>
+                    <td>{{techItems[7].effective_score}} 分</td>
+                    <td>{{score.techScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #EC6908;"></td>
                     <td>盈利模式评分</td>
                     <td>10%</td>
-                    <td>70 分</td>
-                    <td>7 分</td>
+                    <td>{{superviseItems[2].effective_score}}分</td>
+                    <td>{{score.superviseScore}} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #D6B3D4;"></td>
                     <td>资金管监管评分</td>
                     <td>10%</td>
-                    <td>45 分</td>
-                    <td>4.5 分</td>
+                    <td>{{profitItems[1].effective_score}} 分</td>
+                    <td>{{score.profitScore}} 分</td>
                   </tr>
                   <tr class="ttr ttr3">
                     <td></td>
                     <td>总计</td>
                     <td></td>
                     <td></td>
-                    <td>74.0分</td>
+                    <td>{{score.totalScore}} 分</td>
                   </tr>
                   </tbody></table>
               </div>
@@ -532,6 +537,206 @@
     data () {
       return {
         id: '',
+        marketOptions: {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          series: [
+            {
+              type: 'pie',
+              radius: [25, 90],
+              center: ['25%', '50%'],
+              roseType: 'radius',
+              label: {
+                normal: {
+                  position: 'inner'
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              lableLine: {
+                normal: {
+                  show: false
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              data: [
+                {value: 10, name: '行业发展'},
+                {value: 10, name: '市场份额'},
+                {value: 10, name: '区块链创新及代币必要性'}
+              ]
+            }
+          ]
+        },
+        teamOptions: {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          series: [
+            {
+              type: 'pie',
+              radius: [25, 90],
+              center: ['25%', '50%'],
+              roseType: 'radius',
+              label: {
+                normal: {
+                  position: 'inner'
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              lableLine: {
+                normal: {
+                  show: false
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              data: [
+                {value: 10, name: '技术项目经验'},
+                {value: 10, name: '技术实力'},
+                {value: 10, name: '技术完整性'},
+                {value: 10, name: '运营经验'},
+                {value: 10, name: '运营实力'},
+                {value: 10, name: '运营团队完整性'},
+                {value: 10, name: '投资人'}
+              ]
+            }
+          ]
+        },
+        techOptions: {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          series: [
+            {
+              type: 'pie',
+              radius: [25, 90],
+              center: ['25%', '50%'],
+              roseType: 'radius',
+              label: {
+                normal: {
+                  position: 'inner'
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              lableLine: {
+                normal: {
+                  show: false
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              data: [
+                {value: 10, name: '技术创新'},
+                {value: 10, name: '架构设计'},
+                {value: 10, name: '网络'},
+                {value: 10, name: '技术难度'},
+                {value: 10, name: '专利/开源'},
+                {value: 10, name: '应用前景'},
+                {value: 10, name: '开发进度'}
+              ]
+            }
+          ]
+        },
+        superviseOptions: {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          series: [
+            {
+              type: 'pie',
+              radius: [25, 90],
+              center: ['25%', '50%'],
+              roseType: 'radius',
+              label: {
+                normal: {
+                  position: 'inner'
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              lableLine: {
+                normal: {
+                  show: false
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              data: [
+                {value: 10, name: '内部监管'},
+                {value: 10, name: '外部监管'}
+              ]
+            }
+          ]
+        },
+        profitOptions: {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          series: [
+            {
+              type: 'pie',
+              radius: [25, 90],
+              center: ['25%', '50%'],
+              roseType: 'radius',
+              label: {
+                normal: {
+                  position: 'inner'
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              lableLine: {
+                normal: {
+                  show: false
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              data: [
+                {value: 10, name: '盈利模式'}
+              ]
+            }
+          ]
+        },
         fields: {
           dimension: {
             label: '维度'
@@ -545,6 +750,14 @@
           effective_score: {
             label: '有效得分'
           }
+        },
+        score: {
+          marketScore: '',
+          teamScore: '',
+          techScore: '',
+          superviseScore: '',
+          profitScore: '',
+          totalScore: ''
         },
         marketItems: [
           {
@@ -782,26 +995,37 @@
           const techArr = techStrObj.split('|')
           const superviseArr = superviseStrObj.split('|')
           const profitArr = profitStrObj.split('|')
-          for (let i = 0; i < marketArr.length; i++) {
+          for (let i = 0; i < marketArr.length - 1; i++) {
             this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&') + 1, -1)
             this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&'))
+            this.marketItems[this.marketItems.length - 1].effective_score += this.marketItems[i].effective_score
           }
-          for (let i = 0; i < teamArr.length; i++) {
+          for (let i = 0; i < teamArr.length - 1; i++) {
             this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&') + 1, -1)
             this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&'))
+            this.teamItems[this.teamItems.length - 1].effective_score += this.teamItems[i].effective_score
           }
-          for (let i = 0; i < techArr.length; i++) {
+          for (let i = 0; i < techArr.length - 1; i++) {
             this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&') + 1, -1)
             this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&'))
+            this.techItems[this.techItems.length - 1].effective_score += this.techItems[i].effective_score
           }
-          for (let i = 0; i < superviseArr.length; i++) {
+          for (let i = 0; i < superviseArr.length - 1; i++) {
             this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&') + 1, -1)
             this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&'))
+            this.superviseItems[this.superviseItems.length - 1].effective_score += this.superviseItems[i].effective_score
           }
-          for (let i = 0; i < profitArr.length; i++) {
+          for (let i = 0; i < profitArr.length - 1; i++) {
             this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&') + 1, -1)
             this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&'))
+            this.profitItems[this.profitItems.length - 1].effective_score += this.profitItems[i].effective_score
           }
+          this.score.marketScore = parseInt(this.marketItems[3].effective_score) * 0.2
+          this.score.teamScore = parseInt(this.teamItems[7].effective_score) * 0.3
+          this.score.techScore = parseInt(this.techItems[7].effective_score) * 0.3
+          this.score.superviseScore = parseInt(this.superviseItems[2].effective_score) * 0.1
+          this.score.profitScore = parseInt(this.profitItems[1].effective_score) * 0.1
+          this.score.totalScore = parseFloat(this.score.marketScore) + parseFloat(this.score.teamScore) + parseFloat(this.score.techScore) + parseFloat(this.score.superviseScore) + parseFloat(this.score.profitScore)
         })
       }
     }
@@ -966,6 +1190,15 @@
                     line-height: 60px;
               .left-p
                 margin: 30px 0px;
+                div
+                  table
+                    tbody
+                      tr.tab-tr
+                        td
+                          font-weight bold
+                      tr.active
+                        td
+                          background-color #f5f5f5
                 .left-span
                   display: inline-block;
                   font-size: 14px;

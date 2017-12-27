@@ -51,6 +51,7 @@
         this.$router.push({
           path: `/project/${id}`
         })
+        console.log(id)
       },
       ...mapMutations({
         setProject: 'SET_PROJECT'

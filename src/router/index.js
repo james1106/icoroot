@@ -11,6 +11,7 @@ import Doing from '@/components/calendar/doing/doing'
 import Ended from '@/components/calendar/ended/ended'
 import Login from '@/components/login/login'
 import Register from '@/components/register/register'
+import Info from '@/components/info/info'
 import Error from '@/components/error/error'
 
 Vue.use(Router)
@@ -26,6 +27,11 @@ export default new Router({
       path: '/project',
       name: 'project',
       component: Project
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: Info
     },
     {
       path: '/project/:id',
