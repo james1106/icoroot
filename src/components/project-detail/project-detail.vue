@@ -13,15 +13,15 @@
                 Genaro Network
               </div>
               <div id="topContainer">
-                <div class="title-nav" id="topStickyNav">
+                <div class="title-nav" id="nav">
                   <ul class="box-sm-bottom">
-                    <li><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
+                    <li class="nav-item"><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
                     </li>
-                    <li><a href="#" class="jump" jump="jump2">市场分析</a></li>
-                    <li><a href="#" class="jump" jump="jump3">团队分析</a></li>
-                    <li><a href="#" class="jump" jump="jump4">技术分析</a></li>
-                    <li><a href="#" class="jump" jump="jump5">资金监管分析</a></li>
-                    <li><a href="#" class="jump" jump="jump6">盈利模式分析</a></li>
+                    <li class="nav-item"><a href="#" class="jump" jump="jump2">市场分析</a></li>
+                    <li class="nav-item"><a href="#" class="jump" jump="jump3">团队分析</a></li>
+                    <li class="nav-item"><a href="#" class="jump" jump="jump4">技术分析</a></li>
+                    <li class="nav-item"><a href="#" class="jump" jump="jump5">资金监管分析</a></li>
+                    <li class="nav-item"><a href="#" class="jump" jump="jump6">盈利模式分析</a></li>
                   </ul>
                 </div>
               </div>
@@ -99,7 +99,7 @@
               <div class="gauge font2">
 
                 <p class="p1">Genaro Network评级报告</p>
-                <p class="p3"><span class="grade-sp1">74.0</span><span class="grade-sp2">分</span></p>
+                <p class="p3"><span class="grade-sp1">{{data.projectOverview.rating}}</span><span class="grade-sp2">分</span></p>
               </div>
               <!-- 市场分析 -->
               <div class="left-head font2 left-fen-p" name="jump2" role="anchor">
@@ -569,9 +569,9 @@
                 }
               },
               data: [
-                {value: 10, name: '行业发展'},
-                {value: 10, name: '市场份额'},
-                {value: 10, name: '区块链创新及代币必要性'}
+                {value: '', name: '行业发展'},
+                {value: '', name: '市场份额'},
+                {value: '', name: '区块链创新及代币必要性'}
               ]
             }
           ]
@@ -608,13 +608,13 @@
                 }
               },
               data: [
-                {value: 10, name: '技术项目经验'},
-                {value: 10, name: '技术实力'},
-                {value: 10, name: '技术完整性'},
-                {value: 10, name: '运营经验'},
-                {value: 10, name: '运营实力'},
-                {value: 10, name: '运营团队完整性'},
-                {value: 10, name: '投资人'}
+                {value: '', name: '技术项目经验'},
+                {value: '', name: '技术实力'},
+                {value: '', name: '技术完整性'},
+                {value: '', name: '运营经验'},
+                {value: '', name: '运营实力'},
+                {value: '', name: '运营团队完整性'},
+                {value: '', name: '投资人'}
               ]
             }
           ]
@@ -651,13 +651,13 @@
                 }
               },
               data: [
-                {value: 10, name: '技术创新'},
-                {value: 10, name: '架构设计'},
-                {value: 10, name: '网络'},
-                {value: 10, name: '技术难度'},
-                {value: 10, name: '专利/开源'},
-                {value: 10, name: '应用前景'},
-                {value: 10, name: '开发进度'}
+                {value: '', name: '技术创新'},
+                {value: '', name: '架构设计'},
+                {value: '', name: '网络'},
+                {value: '', name: '技术难度'},
+                {value: '', name: '专利/开源'},
+                {value: '', name: '应用前景'},
+                {value: '', name: '开发进度'}
               ]
             }
           ]
@@ -694,8 +694,8 @@
                 }
               },
               data: [
-                {value: 10, name: '内部监管'},
-                {value: 10, name: '外部监管'}
+                {value: '', name: '内部监管'},
+                {value: '', name: '外部监管'}
               ]
             }
           ]
@@ -732,7 +732,7 @@
                 }
               },
               data: [
-                {value: 10, name: '盈利模式'}
+                {value: '', name: '盈利模式'}
               ]
             }
           ]
@@ -999,26 +999,31 @@
             this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&') + 1, -1)
             this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&'))
             this.marketItems[this.marketItems.length - 1].effective_score += this.marketItems[i].effective_score
+            this.marketOptions.series[0].data[i].value = this.marketItems[i].effective_score
           }
           for (let i = 0; i < teamArr.length - 1; i++) {
             this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&') + 1, -1)
             this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&'))
             this.teamItems[this.teamItems.length - 1].effective_score += this.teamItems[i].effective_score
+            this.teamOptions.series[0].data[i].value = this.teamItems[i].effective_score
           }
           for (let i = 0; i < techArr.length - 1; i++) {
             this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&') + 1, -1)
             this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&'))
             this.techItems[this.techItems.length - 1].effective_score += this.techItems[i].effective_score
+            this.techOptions.series[0].data[i].value = this.techItems[i].effective_score
           }
           for (let i = 0; i < superviseArr.length - 1; i++) {
             this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&') + 1, -1)
             this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&'))
             this.superviseItems[this.superviseItems.length - 1].effective_score += this.superviseItems[i].effective_score
+            this.superviseOptions.series[0].data[i].value = this.superviseItems[i].effective_score
           }
           for (let i = 0; i < profitArr.length - 1; i++) {
             this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&') + 1, -1)
             this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&'))
             this.profitItems[this.profitItems.length - 1].effective_score += this.profitItems[i].effective_score
+            this.profitOptions.series[0].data[i].value = this.profitItems[i].effective_score
           }
           this.score.marketScore = parseInt(this.marketItems[3].effective_score) * 0.2
           this.score.teamScore = parseInt(this.teamItems[7].effective_score) * 0.3
@@ -1028,6 +1033,29 @@
           this.score.totalScore = parseFloat(this.score.marketScore) + parseFloat(this.score.teamScore) + parseFloat(this.score.techScore) + parseFloat(this.score.superviseScore) + parseFloat(this.score.profitScore)
         })
       }
+      /* up: function () {
+        let nav = document.getElementById('nav')
+        let scroll = document.documentElement
+        let top = nav.offsetTop
+        let hei = nav.offsetHeight
+        let li = document.getElementsByClassName('nav-item')
+        window.onscroll = function () {
+          if (scroll.scrollTop >= top) {
+            nav.className = 'fix'
+          }
+          if (scroll.scrollTop <= top) {
+            nav.className = ''
+          }
+          for (let i = 0; i < li.length; i++) {
+            if (scroll.scrollTop + hei >= li[i].offsetTop - top / 1.1) {
+              for (let j = 0; j < li.length; j++) {
+                li[j].className = ''
+              }
+              li[i].className = 'cur'
+            }
+          }
+        }
+      } */
     }
   }
 </script>
