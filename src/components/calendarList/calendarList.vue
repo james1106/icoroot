@@ -12,34 +12,34 @@
       <li class="list-li1">
         <div class="list-img">
           <a href="#">
-            <img src="https://cdn.icoroot.com/project/201711065a0032fb3ad3f.png" alt="">
+            <img v-lazy="images.projectLogo" alt="">
           </a>
         </div>
         <div class="list-right">
           <a href="#">
             <p class="right-p1">
-              Spectre
+              {{item.projectName}}
             </p>
           </a>
           <a href="#">
             <p class="right-p2">
-              Spectre一个无中间商的交易平台
+              {{item.projectIntroduction}}
             </p>
           </a>
         </div>
       </li>
       <li class="list-li2">
-        <span class="start-span1">11月17日 20:00</span>
+        <span class="start-span1">{{item.beginTime}}</span>
         <br>
-        <span class="start-span2">6天后结束</span>
+        <span class="start-span2"></span>
       </li>
       <li class="list-li3">
-        <span>12月17日 00:00</span>
+        <span>{{item.overTime}}</span>
       </li>
       <li class="list-li4">
-        <a href="https://twitter.com/SpectreAI" target="_blank"><span class="iconfont icon-twitter"></span></a>
+        <a href="#" target="_blank"><span class="iconfont icon-twitter"></span></a>
       </li>
-      <li class="list-li5"></li>
+      <li class="list-li5">{{item.rating}}</li>
       <li class="list-li6">
         <b-button size="sm" variant="secondary">查看详情</b-button>
       </li>
@@ -49,6 +49,12 @@
 
 <script type="text/ecmascript-6">
     export default {
+      props: {
+        items: {
+          type: Array,
+          default: ''
+        }
+      },
       data () {
         return {
           li1: '项目名称/描述',
@@ -57,12 +63,9 @@
           li4: '相关链接',
           li5: '项目评级',
           li6: '项目状态',
-          items: [
-            {},
-            {},
-            {},
-            {}
-          ]
+          images: {
+            projectLogo: require('common/images/projectLogo.png')
+          }
         }
       }
     }

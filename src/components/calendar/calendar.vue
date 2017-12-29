@@ -1,49 +1,58 @@
 <template>
-  <div class="container">
-    <div class="tabs">
-      <div class="tab-wrapper">
-        <ul class="tab-select">
-          <li><router-link class="r-link" to="/begin">即将开始的</router-link></li>
-          <li><router-link class="r-link" to="/doing">进行中的</router-link></li>
-          <li><router-link class="r-link" to="/ended">已结束的</router-link></li>
-        </ul>
+  <div>
+    <IHeader></IHeader>
+    <div class="container">
+      <div class="tabs">
+        <div class="tab-wrapper">
+          <ul class="tab-select">
+            <li><router-link class="r-link" to="/begin">即将开始的</router-link></li>
+            <li><router-link class="r-link" to="/doing">进行中的</router-link></li>
+            <li><router-link class="r-link" to="/ended">已结束的</router-link></li>
+          </ul>
+        </div>
+        <div class="choose-wrapper">
+          <b-dropdown id="ddown1" class="v-btn" text="行业类别">
+            <b-dropdown-item>First Action</b-dropdown-item>
+            <b-dropdown-item>Second Action</b-dropdown-item>
+            <b-dropdown-item>Third Action</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item>Something else here...</b-dropdown-item>
+            <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+          </b-dropdown>
+          <b-dropdown id="ddown1" class="v-btn" text="行业类别">
+            <b-dropdown-item>First Action</b-dropdown-item>
+            <b-dropdown-item>Second Action</b-dropdown-item>
+            <b-dropdown-item>Third Action</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item>Something else here...</b-dropdown-item>
+            <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+          </b-dropdown>
+          <b-dropdown id="ddown1" class="v-btn" text="行业类别">
+            <b-dropdown-item>First Action</b-dropdown-item>
+            <b-dropdown-item>Second Action</b-dropdown-item>
+            <b-dropdown-item>Third Action</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item>Something else here...</b-dropdown-item>
+            <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+          </b-dropdown>
+        </div>
       </div>
-      <div class="choose-wrapper">
-        <b-dropdown id="ddown1" class="v-btn" text="行业类别">
-          <b-dropdown-item>First Action</b-dropdown-item>
-          <b-dropdown-item>Second Action</b-dropdown-item>
-          <b-dropdown-item>Third Action</b-dropdown-item>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item>Something else here...</b-dropdown-item>
-          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-        </b-dropdown>
-        <b-dropdown id="ddown1" class="v-btn" text="行业类别">
-          <b-dropdown-item>First Action</b-dropdown-item>
-          <b-dropdown-item>Second Action</b-dropdown-item>
-          <b-dropdown-item>Third Action</b-dropdown-item>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item>Something else here...</b-dropdown-item>
-          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-        </b-dropdown>
-        <b-dropdown id="ddown1" class="v-btn" text="行业类别">
-          <b-dropdown-item>First Action</b-dropdown-item>
-          <b-dropdown-item>Second Action</b-dropdown-item>
-          <b-dropdown-item>Third Action</b-dropdown-item>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item>Something else here...</b-dropdown-item>
-          <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-        </b-dropdown>
-      </div>
+      <router-view to="/doing"></router-view>
     </div>
-    <router-view></router-view>
+    <IFooter></IFooter>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import CalendarList from '../calendarList/calendarList.vue'
+  import IHeader from '@/components/header/iHeader'
+  import IFooter from '@/components/footer/iFooter'
+
   export default {
     components: {
-      calendarList: CalendarList
+      calendarList: CalendarList,
+      IHeader,
+      IFooter
     }
   }
 </script>
@@ -52,6 +61,7 @@
 @media (min-width: 1201px)
   .container
     padding-top 50px
+    padding-bottom 50px
     .tabs
       height 45px
       .tab-wrapper
@@ -93,6 +103,7 @@
   .container
     padding 0
     padding-top 50px
+    padding-bottom 50px
     .tabs
       height 45px
       .tab-wrapper
@@ -133,6 +144,7 @@
   .container
     padding 0
     padding-top 50px
+    padding-bottom 50px
     .tabs
       height 90px
       display -webkit-flex

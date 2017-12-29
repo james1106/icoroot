@@ -4,7 +4,7 @@
       <b-container>
         <b-navbar toggleable="md" style="background-color: #fff">
           <b-navbar-brand href="#">
-            <img src="https://cdn.icoroot.com/public/static/img/svg-01.svg" class="login" alt="">
+            <img v-lazy="img" class="login" alt="">
           </b-navbar-brand>
           <b-navbar-toggle target="nav_collapse" class="nav-toggle"></b-navbar-toggle>
           <b-collapse is-nav id="nav_collapse">
@@ -12,7 +12,7 @@
               <b-nav-item right to="/">
                 首页
               </b-nav-item>
-              <b-nav-item right to="calendar">
+              <b-nav-item right to="doing">
                 ICO日程表
               </b-nav-item>
               <b-nav-item right to="">
@@ -27,7 +27,10 @@
 </template>
 <script>
   export default {
-    components: {
+    data () {
+      return {
+        img: require('common/images/logo.svg')
+      }
     }
   }
 </script>

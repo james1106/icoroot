@@ -2,14 +2,14 @@
   <div>
     <header>
       <div class="logo-wrapper">
-        <img src="https://cdn.icoroot.com/public/static/img/svg-01.svg" class="login" alt="">
+        <img v-lazy="img" class="login" alt="">
       </div>
     </header>
     <footer>
       <ul class="foot-us">
-        <li class="font1"><a href="https://www.icoroot.com/about?about=service">服务条款</a></li>
-        <li class="font1 li-bor"><a href="https://www.icoroot.com/about?about=contanct">联系我们</a></li>
-        <li class="font1"><a href="https://www.icoroot.com/about?about=about">关于我们</a></li>
+        <li class="font1"><a href="#">服务条款</a></li>
+        <li class="font1 li-bor"><a href="#">联系我们</a></li>
+        <li class="font1"><a href="#">关于我们</a></li>
       </ul>
     </footer>
   </div>
@@ -17,6 +17,11 @@
 
 <script>
   export default {
+    data () {
+      return {
+        img: require('common/images/logo.svg')
+      }
+    }
   }
 </script>
 

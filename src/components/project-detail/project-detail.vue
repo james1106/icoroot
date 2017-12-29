@@ -7,13 +7,13 @@
           <b-col sm="9" cols="12" class="box-sm">
             <div class="box-sm-top">
               <div class="sm-img">
-                <img class="lazyload" data-src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png" alt="" src="//cdn.icoroot.com/project/2017103159f80e2f0899a.png">
+                <img alt="" v-lazy="images.projectLogo">
               </div>
               <div class="sm-neirong">
-                Genaro Network
+                {{data.projectOverview.projectName}}
               </div>
               <div id="topContainer">
-                <div class="title-nav" id="nav">
+                <div class="title-nav" id="topStickyNav">
                   <ul class="box-sm-bottom">
                     <li class="nav-item"><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
                     </li>
@@ -39,7 +39,7 @@
     <b-container fluid class="content-fluid">
       <b-container>
         <b-row>
-          <b-col lg="9" md="12" sm="12" cols="12" class="col-left">
+          <div class="col-left">
             <div class="left-cont">
               <div class="left-head font2" name="jump1" role="anchor">
                 项目概况
@@ -97,7 +97,6 @@
             <p class="bg-p"></p>
             <div class="left-cont">
               <div class="gauge font2">
-
                 <p class="p1">Genaro Network评级报告</p>
                 <p class="p3"><span class="grade-sp1">{{data.projectOverview.rating}}</span><span class="grade-sp2">分</span></p>
               </div>
@@ -114,13 +113,13 @@
                   <span>有效得分：{{data.projectOverview.rating}}分</span>
                 </h4>
               </div>
-              <b-row class="left-p left-p2 row">
-                <b-col lg="8" md="8" sm="8" cols="12">
+              <b-row class="left-p left-p2 row marketRow">
+                <div class="col-p-left">
                   <b-table :items="marketItems" :fields="fields"></b-table>
-                </b-col>
-                <b-col lg="4" md="4" sm="4" cols="12">
+                </div>
+                <div class="col-p-right">
                   <pie :options="marketOptions"></pie>
-                </b-col>
+                </div>
               </b-row>
               <!-- 团队分析 -->
               <div class="left-head font2 left-fen-p" name="jump3" role="anchor">
@@ -129,28 +128,28 @@
               <div class="row">
                 <dl class="col-sm-4 tm-dl font2">
                   <dt>
-                    <img class="lazyload" data-src="//cdn.icoroot.com/project/2017091859bf840608ac5.png" alt="" src="//cdn.icoroot.com/project/2017091859bf840608ac5.png">
+                    <img v-lazy="images.team1">
                   </dt>
                   <dd class="tm-dd1">Larry Liu</dd>
                   <dd class="tm-dd2">CEO</dd>
                 </dl>
                 <dl class="col-sm-4 tm-dl font2">
                   <dt>
-                    <img class="lazyload" data-src="//cdn.icoroot.com/project/2017091859bf84060bc1d.png" alt="" src="//cdn.icoroot.com/project/2017091859bf84060bc1d.png">
+                    <img v-lazy="images.team2">
                   </dt>
                   <dd class="tm-dd1">Waylon Wu</dd>
                   <dd class="tm-dd2">CTO</dd>
                 </dl>
                 <dl class="col-sm-4 tm-dl font2">
                   <dt>
-                    <img class="lazyload" data-src="//cdn.icoroot.com/project/2017091859bf84060eb27.png" alt="" src="//cdn.icoroot.com/project/2017091859bf84060eb27.png">
+                    <img v-lazy="images.team3">
                   </dt>
                   <dd class="tm-dd1">Andrea Liu</dd>
                   <dd class="tm-dd2">COO</dd>
                 </dl>
                 <dl class="col-sm-4 tm-dl font2">
                   <dt>
-                    <img class="lazyload" data-src="//cdn.icoroot.com/project/201711105a05868f4fad1.png" alt="" src="//cdn.icoroot.com/project/201711105a05868f4fad1.png">
+                    <img v-lazy="images.team4">
                   </dt>
                   <dd class="tm-dd1">​Jason Inch</dd>
                   <dd class="tm-dd2">战略总监</dd>
@@ -167,12 +166,12 @@
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
-                <b-col lg="8" md="8" sm="8" cols="12">
+                <div class="col-p-left">
                   <b-table :items="teamItems" :fields="fields"></b-table>
-                </b-col>
-                <b-col lg="4" md="4" sm="4" cols="12">
+                </div>
+                <div class="col-p-right">
                   <pie :options="teamOptions"></pie>
-                </b-col>
+                </div>
               </b-row>
               <!-- 技术分析 -->
               <div class="left-head font2 left-fen-p" name="jump4" role="anchor">
@@ -188,12 +187,12 @@
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
-                <b-col lg="8" md="8" sm="8" cols="12">
-                  <b-table :items="techItems" :fields="fields"></b-table>
-                </b-col>
-                <b-col lg="4" md="4" sm="4" cols="12">
+                <div class="col-p-left">
+                  <b-table :items="techItems" :fields="fields" class="bgTable"></b-table>
+                </div>
+                <div class="col-p-right">
                   <pie :options="techOptions"></pie>
-                </b-col>
+                </div>
               </b-row>
               <!-- 资金监管分析 -->
               <div class="left-head font2 left-fen-p" name="jump5" role="anchor">
@@ -210,12 +209,12 @@
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
-                <b-col lg="8" md="8" sm="8" cols="12">
+                <div class="col-p-left">
                   <b-table :items="superviseItems" :fields="fields"></b-table>
-                </b-col>
-                <b-col lg="4" md="4" sm="4" cols="12">
+                </div>
+                <div class="col-p-right">
                   <pie :options="superviseOptions"></pie>
-                </b-col>
+                </div>
               </b-row>
               <!-- 盈利模式分析 -->
               <div class="left-head font2 left-fen-p" name="jump6" role="anchor">
@@ -232,19 +231,19 @@
                 </h4>
               </div>
               <b-row class="left-p left-p2 row">
-                <b-col lg="8" md="8" sm="8" cols="12">
+                <div class="col-p-left">
                   <b-table :items="profitItems" :fields="fields"></b-table>
-                </b-col>
-                <b-col lg="4" md="4" sm="4" cols="12">
+                </div>
+                <div class="col-p-right">
                   <pie :options="profitOptions"></pie>
-                </b-col>
+                </div>
               </b-row>
               <!-- 投资建议 -->
               <div class="left-head font2">
                 投资建议
               </div>
               <p class="zy-p1 font1">总分： 100分</p>
-              <p class="zy-p2 font1">74.0</p>
+              <p class="zy-p2 font1">{{data.projectOverview.rating}}</p>
               <div class="left-p left-p2">
                 <table class="font2 bi-ge zy-bg">
                   <tbody><tr class="ttr ttr1">
@@ -258,35 +257,35 @@
                     <td style="width: 10px;background-color: #36BBD2;"></td>
                     <td>市场评分</td>
                     <td>20%</td>
-                    <td>{{marketItems[3].effective_score}} 分</td>
+                    <td>{{marketItems[3].effective_score}}</td>
                     <td>{{score.marketScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #3D586A;"></td>
                     <td>团队评分</td>
                     <td>30%</td>
-                    <td>{{teamItems[7].effective_score}} 分</td>
+                    <td>{{teamItems[7].effective_score}}</td>
                     <td>{{score.teamScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #85C225;"></td>
                     <td>技术评分</td>
                     <td>30%</td>
-                    <td>{{techItems[7].effective_score}} 分</td>
+                    <td>{{techItems[7].effective_score}}</td>
                     <td>{{score.techScore }} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #EC6908;"></td>
                     <td>盈利模式评分</td>
                     <td>10%</td>
-                    <td>{{superviseItems[2].effective_score}}分</td>
+                    <td>{{superviseItems[2].effective_score}}</td>
                     <td>{{score.superviseScore}} 分</td>
                   </tr>
                   <tr class="ttr ttr2">
                     <td style="width: 10px;background-color: #D6B3D4;"></td>
                     <td>资金管监管评分</td>
                     <td>10%</td>
-                    <td>{{profitItems[1].effective_score}} 分</td>
+                    <td>{{profitItems[1].effective_score}}</td>
                     <td>{{score.profitScore}} 分</td>
                   </tr>
                   <tr class="ttr ttr3">
@@ -337,9 +336,8 @@
                 4. 本报告版权属于ICO源所有，未经授权，任何机构和个人不得复制、转载、出售和发布，如引用、刊发，须注明出处，且不得歪曲和篡改。
               </p>
             </div>
-          </b-col>
-
-          <b-col lg="3" md="12" sm="12" cols="12" class="col-right">
+          </div>
+          <div class="col-right">
             <div class="right-cont font2">
 
               <div id="exchangeProgressArea" style="display:none;">
@@ -433,7 +431,7 @@
                 链接
               </div>
               <div class="lianjie">
-                <a href="https://genaro.network" target="_blank" class="right-a" title="http://....">
+                <a href="#" target="_blank" class="right-a" title="http://....">
                   <span class="iconfont icon-zhuye1"></span> 官网
                 </a>
                 <a href="{empty($detail['link']['site2'])?'javascript:;':$detail['link']['site2']}}" target="_blank" class="right-a" title="slack">
@@ -442,19 +440,19 @@
                 <a href="javascript:;" target="_blank" class="right-a" title="facebook">
                                 <span class="iconfont icon-facebookf">
                                 </span>暂无</a>
-                <a href="https://genaro.network/en/blog/" target="_blank" class="right-a" title="telegram">
+                <a href="#" target="_blank" class="right-a" title="telegram">
                                 <span class="iconfont icon-telegram">
                                 </span>Telegram</a>
-                <a href="https://twitter.com/GenaroNetwork" target="_blank" class="right-a" title="twitter">
+                <a href="#" target="_blank" class="right-a" title="twitter">
                                 <span class="iconfont icon-twitter1">
                                 </span>Twitter</a>
-                <a href="https://genaro.network/en/blog/" target="_blank" class="right-a" title="微博">
+                <a href="#" target="_blank" class="right-a" title="微博">
                                 <span class="iconfont icon-weibo">
                                 </span>微博</a>
-                <a href="https://github.com/GenaroSanada" target="_blank" class="right-a" title="github">
+                <a href="#" target="_blank" class="right-a" title="github">
                                 <span class="iconfont icon-github">
                                 </span>Github</a>
-                <a href="https://genaro.network/en/whitepaper/" target="_blank" class="right-a" title="白皮书">
+                <a href="#" target="_blank" class="right-a" title="白皮书">
                                 <span class="iconfont icon-shu1">
                                 </span>白皮书</a>
               </div>
@@ -467,52 +465,52 @@
               </div>
               <div class="news">
                 <p class="news-a-p1">
-                  <a href="https://www.icoroot.com/news/detail/6">基于区块链的去中心化共享模式能否在云储存市场占有一席之地？</a>
+                  <a href="#">基于区块链的去中心化共享模式能否在云储存市场占有一席之地？</a>
                 </p>
                 <p class="news-a-p2">
-                  <a href="https://www.icoroot.com/news/detail/6">“面向个人用户的免费云盘在2016年出现了一波关停潮，你们为什么还要做云存储？”
+                  <a href="#">“面向个人用户的免费云盘在2016年出现了一波关停潮，你们为什么还要做云存储？”
                     面对巴比特记者的这一提问，Genaro项目负责人刘昱反而显得相当自信，“这正是我们的机会所在。”</a>
                 </p>
                 <p><span>2017-09-26</span></p>
               </div>
               <div class="news">
                 <p class="news-a-p1">
-                  <a href="https://www.icoroot.com/news/detail/38">Datum Presale白名单</a>
+                  <a href="#">Datum Presale白名单</a>
                 </p>
                 <p class="news-a-p2">
-                  <a href="https://www.icoroot.com/news/detail/38">为了保持DAT代币公平的分布，我们一直在研究不同的模式，以确保广泛分发，并使关键社区成员参与而不被忽视。我们已经通过预售智能合同中的下列表格，为已登记并致力于最低/最高金额的白名单社区成员ETH地址进行了解决。</a>
+                  <a href="#">为了保持DAT代币公平的分布，我们一直在研究不同的模式，以确保广泛分发，并使关键社区成员参与而不被忽视。我们已经通过预售智能合同中的下列表格，为已登记并致力于最低/最高金额的白名单社区成员ETH地址进行了解决。</a>
                 </p>
                 <p><span>2017-10-05</span></p>
               </div>
               <div class="news">
                 <p class="news-a-p1">
-                  <a href="https://www.icoroot.com/news/detail/37">Datum代币销售更新：重新安排到2017年10月中旬</a>
+                  <a href="#">Datum代币销售更新：重新安排到2017年10月中旬</a>
                 </p>
                 <p class="news-a-p2">
-                  <a href="https://www.icoroot.com/news/detail/37">Datum社区的最大利益是将主要的公共销售销售延迟到2017年10月中旬。这个额外的时间将有助于更好的监管理解和透明度，并进一步确保我们的项目完全符合规定，并依赖于稳固的监管基础。</a>
+                  <a href="#">Datum社区的最大利益是将主要的公共销售销售延迟到2017年10月中旬。这个额外的时间将有助于更好的监管理解和透明度，并进一步确保我们的项目完全符合规定，并依赖于稳固的监管基础。</a>
                 </p>
                 <p><span>2017-10-05</span></p>
               </div>
               <div class="news">
                 <p class="news-a-p1">
-                  <a href="https://www.icoroot.com/news/detail/51">Inside Launching a Token Sale</a>
+                  <a href="#">Inside Launching a Token Sale</a>
                 </p>
                 <p class="news-a-p2">
-                  <a href="https://www.icoroot.com/news/detail/51">Last night we launched our Public Token Sale to the world. Months of work and preparation lead up to this incredible mil</a>
+                  <a href="#">Last night we launched our Public Token Sale to the world. Months of work and preparation lead up to this incredible mil</a>
                 </p>
                 <p><span>2017-10-05</span></p>
               </div>
               <div class="news" style="border-bottom: none;">
                 <p class="news-a-p1">
-                  <a href="https://www.icoroot.com/news/detail/77">同样是共享CDN+数字资产 为何百度金矿退避三分而迅雷却高歌猛进？</a>
+                  <a href="#">同样是共享CDN+数字资产 为何百度金矿退避三分而迅雷却高歌猛进？</a>
                 </p>
                 <p class="news-a-p2">
-                  <a href="https://www.icoroot.com/news/detail/77">是规避风险还是高歌猛进！</a>
+                  <a href="#">是规避风险还是高歌猛进！</a>
                 </p>
                 <p><span>2017-12-05</span></p>
               </div>
             </div>
-          </b-col>
+          </div>
         </b-row>
       </b-container>
     </b-container>
@@ -537,6 +535,13 @@
     data () {
       return {
         id: '',
+        images: {
+          projectLogo: require('common/images/projectLogo.png'),
+          team1: require('common/images/team1.png'),
+          team2: require('common/images/team2.png'),
+          team3: require('common/images/team3.png'),
+          team4: require('common/images/team4.png')
+        },
         marketOptions: {
           tooltip: {
             trigger: 'item'
@@ -738,6 +743,9 @@
           ]
         },
         fields: {
+          '': {
+            label: ''
+          },
           dimension: {
             label: '维度'
           },
@@ -750,6 +758,13 @@
           effective_score: {
             label: '有效得分'
           }
+        },
+        sum: {
+          market_sum: 0,
+          team_sum: 0,
+          tech_sum: 0,
+          supervise_sum: 0,
+          profit_sum: 0
         },
         score: {
           marketScore: '',
@@ -861,7 +876,7 @@
             effective_score: ''
           },
           {
-            dimension: '专利/开源',
+            dimension: '专利开源',
             description: '',
             total_project: '10分',
             effective_score: ''
@@ -995,42 +1010,51 @@
           const techArr = techStrObj.split('|')
           const superviseArr = superviseStrObj.split('|')
           const profitArr = profitStrObj.split('|')
-          for (let i = 0; i < marketArr.length - 1; i++) {
+          for (let i = 0; i < marketArr.length; i++) {
             this.marketItems[i].description = marketArr[i].slice(marketArr[i].indexOf('&') + 1, -1)
-            this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&'))
-            this.marketItems[this.marketItems.length - 1].effective_score += this.marketItems[i].effective_score
-            this.marketOptions.series[0].data[i].value = this.marketItems[i].effective_score
+            this.marketItems[i].effective_score = marketArr[i].slice(0, marketArr[i].indexOf('&')) + '分'
+            this.sum.market_sum += parseInt(this.marketItems[i].effective_score)
+            this.marketOptions.series[0].data[i].value = parseInt(this.marketItems[i].effective_score)
           }
-          for (let i = 0; i < teamArr.length - 1; i++) {
+          for (let i = 0; i < teamArr.length; i++) {
             this.teamItems[i].description = teamArr[i].slice(teamArr[i].indexOf('&') + 1, -1)
-            this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&'))
-            this.teamItems[this.teamItems.length - 1].effective_score += this.teamItems[i].effective_score
-            this.teamOptions.series[0].data[i].value = this.teamItems[i].effective_score
+            this.teamItems[i].effective_score = teamArr[i].slice(0, teamArr[i].indexOf('&')) + '分'
+            this.sum.team_sum += parseInt(this.teamItems[i].effective_score)
+            this.teamOptions.series[0].data[i].value = parseInt(this.teamItems[i].effective_score)
           }
-          for (let i = 0; i < techArr.length - 1; i++) {
+          for (let i = 0; i < techArr.length; i++) {
             this.techItems[i].description = techArr[i].slice(techArr[i].indexOf('&') + 1, -1)
-            this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&'))
-            this.techItems[this.techItems.length - 1].effective_score += this.techItems[i].effective_score
-            this.techOptions.series[0].data[i].value = this.techItems[i].effective_score
+            this.techItems[i].effective_score = techArr[i].slice(0, techArr[i].indexOf('&')) + '分'
+            this.sum.tech_sum += parseInt(this.techItems[i].effective_score)
+            this.techOptions.series[0].data[i].value = parseInt(this.techItems[i].effective_score)
           }
-          for (let i = 0; i < superviseArr.length - 1; i++) {
+          for (let i = 0; i < superviseArr.length; i++) {
             this.superviseItems[i].description = superviseArr[i].slice(superviseArr[i].indexOf('&') + 1, -1)
-            this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&'))
-            this.superviseItems[this.superviseItems.length - 1].effective_score += this.superviseItems[i].effective_score
-            this.superviseOptions.series[0].data[i].value = this.superviseItems[i].effective_score
+            this.superviseItems[i].effective_score = superviseArr[i].slice(0, superviseArr[i].indexOf('&')) + '分'
+            this.sum.supervise_sum += parseInt(this.superviseItems[i].effective_score)
+            this.superviseOptions.series[0].data[i].value = parseInt(this.superviseItems[i].effective_score)
           }
-          for (let i = 0; i < profitArr.length - 1; i++) {
+          for (let i = 0; i < profitArr.length; i++) {
             this.profitItems[i].description = profitArr[i].slice(profitArr[i].indexOf('&') + 1, -1)
-            this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&'))
-            this.profitItems[this.profitItems.length - 1].effective_score += this.profitItems[i].effective_score
-            this.profitOptions.series[0].data[i].value = this.profitItems[i].effective_score
+            this.profitItems[i].effective_score = profitArr[i].slice(0, profitArr[i].indexOf('&')) + '分'
+            this.sum.profit_sum += parseInt(this.profitItems[i].effective_score)
+            this.profitOptions.series[0].data[i].value = parseInt(this.profitItems[i].effective_score)
           }
+          this.marketItems[this.marketItems.length - 1].effective_score = this.sum.market_sum + '分'
+          this.teamItems[this.teamItems.length - 1].effective_score = this.sum.team_sum + '分'
+          this.techItems[this.techItems.length - 1].effective_score = this.sum.tech_sum + '分'
+          this.superviseItems[this.superviseItems.length - 1].effective_score = this.sum.supervise_sum + '分'
+          this.profitItems[this.profitItems.length - 1].effective_score = this.sum.profit_sum + '分'
           this.score.marketScore = parseInt(this.marketItems[3].effective_score) * 0.2
           this.score.teamScore = parseInt(this.teamItems[7].effective_score) * 0.3
           this.score.techScore = parseInt(this.techItems[7].effective_score) * 0.3
           this.score.superviseScore = parseInt(this.superviseItems[2].effective_score) * 0.1
           this.score.profitScore = parseInt(this.profitItems[1].effective_score) * 0.1
-          this.score.totalScore = parseFloat(this.score.marketScore) + parseFloat(this.score.teamScore) + parseFloat(this.score.techScore) + parseFloat(this.score.superviseScore) + parseFloat(this.score.profitScore)
+          this.score.totalScore += parseFloat(this.score.marketScore)
+          this.score.totalScore += parseFloat(this.score.teamScore)
+          this.score.totalScore += parseFloat(this.score.techScore)
+          this.score.totalScore += parseFloat(this.score.superviseScore)
+          this.score.totalScore += parseFloat(this.score.profitScore)
         })
       }
       /* up: function () {
@@ -1156,7 +1180,12 @@
           .col-left
             padding: 0
             margin-bottom: 40px;
+            .bg-p
+              width: 100%;
+              height: 20px;
+              background-color: #EDEEEF;
             .left-cont
+              width: 100%;
               background-color: #fff;
               height: auto;
               padding: 15px 30px;
@@ -1179,15 +1208,6 @@
                   color: #574F60;
                   font-weight: bold;
                   padding-left: 20px;
-            .bg-p
-              width: 100%;
-              height: 20px;
-              background-color: #EDEEEF;
-            .left-cont
-              background-color: #fff;
-              height: auto;
-              padding: 15px 30px;
-              border-radius: 5px;
               .gauge
                 height: 60px;
                 width: 100%;
@@ -1481,4 +1501,35 @@
                 .right-span
                   padding-left: 0px;
                   font-size: 14px;
+  @media (min-width: 768px)
+    .col-p-left
+      width: 100%;
+    .col-p-right
+      width: 100%
+    .col-left
+      width: 100%;
+    .col-right
+      width: 100%;
+  @media (min-width: 992px)
+    .col-p-left
+      width: 100%;
+    .col-p-right
+      width: 100%
+    .col-left
+      width: 100%;
+    .col-right
+      width: 100%;
+  @media (min-width: 1200px)
+    .col-p-left
+      width: 66.666667%
+      float: left
+    .col-p-right
+      width: 33.333333%
+      float: left
+    .col-left
+      width: 75%;
+      float left
+    .col-right
+      width: 25%;
+      float left
 </style>

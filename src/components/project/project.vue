@@ -3,25 +3,23 @@
     <b-row align-h="center" class="row">
       <b-col md="3" sm="6" xs="12" class="box" v-for="item in items" :key="item.id">
         <div class="box-cont">
-          <div class="box-img lazyload " data-src="//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557" style="background-image: url(&quot;//cdn.icoroot.com/recommend/201711135a09209f1fedc.png?_=20171206142557&quot;);">
+          <div class="box-img" v-lazy:background-image="images.projectBg">
             <a @click="selectProject(item.id, item)">
-              <img class="lazyload" data-src="//cdn.icoroot.com/project/201711135a090d5c30a57.png" alt="" src="//cdn.icoroot.com/project/201711135a090d5c30a57.png">
+              <img v-lazy="images.projectLogo">
             </a>
             <a @click="selectProject(item.id, item)">
               <div class="fenshu">
                 <span class="sp1">评级</span>
-                <span class="sp2">77.0</span>
+                <span class="sp2">{{item.rating}}</span>
               </div>
             </a>
           </div>
           <div class="box-bottom">
-            <a href="https://www.icoroot.com/project/detail/115"><p class="box-p1">CyberMiles</p></a>
-            <a href="https://www.icoroot.com/project/detail/115"><p class="box-p2">{{item.projectDescription}}</p></a>
-
+            <a @click="selectProject(item.id, item)"><p class="box-p1">{{item.projectName}}</p></a>
+            <a @click="selectProject(item.id, item)"><p class="box-p2">{{item.projectDescription}}</p></a>
             <p class="box-p3">
-              于 2017-12-05 15:00:00 结束
+              于 {{item.overTime}} 结束
             </p>
-
             <a href="https://www.icoroot.com/project/detail/115" class="btn btn-default btn-bg-4" role="button">
               ICO结束
             </a>
@@ -43,7 +41,12 @@
       }
     },
     data () {
-      return {}
+      return {
+        images: {
+          projectLogo: require('common/images/projectLogo.png'),
+          projectBg: require('common/images/projectBg.png')
+        }
+      }
     },
     methods: {
       selectProject (id, item) {
@@ -51,7 +54,6 @@
         this.$router.push({
           path: `/project/${id}`
         })
-        console.log(id)
       },
       ...mapMutations({
         setProject: 'SET_PROJECT'

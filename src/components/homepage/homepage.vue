@@ -16,16 +16,16 @@
                         @sliding-end="onSlideEnd"
             >
 
-              <!-- Text slides with image -->
               <b-carousel-slide caption="First slide"
                                 text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                                style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner1.png?_=20171206142557')"
+                                v-lazy:background-image="banner1"
+                                style="height: 300px;"
               ></b-carousel-slide>
 
-              <!-- Text slides with image -->
               <b-carousel-slide caption="First slide"
                                 text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                                style="height: 300px;background-image: url('https://cdn.icoroot.com/public/static/img/bg-banner2.png?_=20171206142557')"
+                                v-lazy:background-image="banner2"
+                                style="height: 300px;"
               ></b-carousel-slide>
 
             </b-carousel>
@@ -34,22 +34,22 @@
             <div class="tou-cont">
               <h4>ICO头条</h4>
               <p class="tou-p">
-                <a href="https://www.icoroot.com/news/detail/76">
+                <a href="#">
                   Genaro 与Storj宣布全面战略合作与产品整合
                 </a>
               </p>
               <p class="tou-p">
-                <a href="https://www.icoroot.com/news/detail/77">
+                <a href="#">
                   同样是共享CDN+数字资产 为何百度金矿退避三分而迅雷却高歌猛进？
                 </a>
               </p>
               <p class="tou-p">
-                <a href="https://www.icoroot.com/news/detail/78">
+                <a href="#">
                   重庆市高度重视区块链发展 区块链在地方落地进程加快
                 </a>
               </p>
               <p class="tou-p">
-                <a href="https://www.icoroot.com/news/detail/75">
+                <a href="#">
                   用AI约会，唱歌，见偶像……PAI想用区块链打造每个人的人工智能
                 </a>
               </p>
@@ -67,7 +67,7 @@
           进行中的项目
         </p>
         <b-container class="list-container">
-          <cal-list></cal-list>
+          <cal-list :items="this.running"></cal-list>
         </b-container>
       </b-container>
     </b-container>
@@ -95,6 +95,8 @@
       return {
         slide: 0,
         sliding: null,
+        banner1: require('common/images/banner1.png'),
+        banner2: require('common/images/banner2.png'),
         data: [
           {
             beginTime: null,
@@ -126,7 +128,8 @@
             tokenTotal: '',
             tokenType: ''
           }
-        ]
+        ],
+        running: []
       }
     },
     created () {
@@ -142,6 +145,9 @@
       _getHomepage: function () {
         api.getHomepage().then((res) => {
           this.data = Array.from(res.data.data)
+        })
+        api.getDoing().then((res) => {
+          this.running = Array.from(res.data.data)
         })
       }
     }
@@ -195,6 +201,7 @@
               overflow: hidden;
               text-overflow: ellipsis;
               display: -webkit-box;
+              white-space: nowrap;
               -webkit-line-clamp: 2;
               -webkit-box-orient: vertical;
     .p-title

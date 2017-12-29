@@ -1,14 +1,26 @@
 <template>
   <div class="doing">
-    <cal-list></cal-list>
+    <cal-list :items="this.data"></cal-list>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import CalendarList from '@/components/calendarList/calendarList'
+  import api from '../../../api/index'
+
   export default {
     components: {
       calList: CalendarList
+    },
+    data () {
+      return {
+        data: []
+      }
+    },
+    created () {
+      api.getDoing().then((res) => {
+        this.data = Array.from(res.data.data)
+      })
     }
   }
 </script>

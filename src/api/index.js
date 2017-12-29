@@ -28,5 +28,14 @@ export default {
   },
   writeInfo: function (data) {
     return Vue.axios.post('/projectPut', data)
+  },
+  getBegin: function () {
+    return Vue.axios.get('/ready/project')
+  },
+  getDoing: function () {
+    return Vue.axios.get('/running/project')
+  },
+  getEnded: function () {
+    return Vue.axios.get('/over/project')
   }
 }
