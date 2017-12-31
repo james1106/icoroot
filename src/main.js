@@ -15,7 +15,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/chart/pie'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://192.168.1.156:8080'
+axios.defaults.baseURL = 'http://39.108.117.192:8080'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 Vue.use(BootstrapVue)

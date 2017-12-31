@@ -14,14 +14,13 @@
               </div>
               <div id="topContainer">
                 <div class="title-nav" id="topStickyNav">
-                  <ul class="box-sm-bottom">
-                    <li class="nav-item"><a href="#" class="jump a-active" jump="jump1" jump-margin-top="10">项目概况</a>
-                    </li>
-                    <li class="nav-item"><a href="#" class="jump" jump="jump2">市场分析</a></li>
-                    <li class="nav-item"><a href="#" class="jump" jump="jump3">团队分析</a></li>
-                    <li class="nav-item"><a href="#" class="jump" jump="jump4">技术分析</a></li>
-                    <li class="nav-item"><a href="#" class="jump" jump="jump5">资金监管分析</a></li>
-                    <li class="nav-item"><a href="#" class="jump" jump="jump6">盈利模式分析</a></li>
+                  <ul class="box-sm-bottom" id="nav">
+                    <li class="nav-to"><a href="#" class="nav-a cur">项目概况</a></li>
+                    <li class="nav-to"><a href="#" class="nav-a">市场分析</a></li>
+                    <li class="nav-to"><a href="#" class="nav-a">团队分析</a></li>
+                    <li class="nav-to"><a href="#" class="nav-a">技术分析</a></li>
+                    <li class="nav-to"><a href="#" class="nav-a">资金监管分析</a></li>
+                    <li class="nav-to"><a href="#" class="nav-a">盈利模式分析</a></li>
                   </ul>
                 </div>
               </div>
@@ -41,7 +40,7 @@
         <b-row>
           <div class="col-left">
             <div class="left-cont">
-              <div class="left-head font2" name="jump1" role="anchor">
+              <div class="left-head font2 jump" role="anchor">
                 项目概况
               </div>
               <b-row class="left-p">
@@ -101,7 +100,7 @@
                 <p class="p3"><span class="grade-sp1">{{data.projectOverview.rating}}</span><span class="grade-sp2">分</span></p>
               </div>
               <!-- 市场分析 -->
-              <div class="left-head font2 left-fen-p" name="jump2" role="anchor">
+              <div class="left-head font2 left-fen-p jump" role="anchor">
                 一. 市场分析
               </div>
               <div class="left-p left-p1 font1">
@@ -115,14 +114,52 @@
               </div>
               <b-row class="left-p left-p2 row marketRow">
                 <div class="col-p-left">
-                  <b-table :items="marketItems" :fields="fields"></b-table>
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
+                      <tr class="ttr ttr1">
+                        <td></td>
+                        <td>维度</td>
+                        <td>总比分占比</td>
+                        <td>项目总分</td>
+                        <td>有效得分</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
+                        <td>{{marketItems[0].dimension}}</td>
+                        <td>{{marketItems[0].description}}</td>
+                        <td>{{marketItems[0].total_project}}</td>
+                        <td>{{marketItems[0].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(47, 69, 84);"></td>
+                        <td>{{marketItems[1].dimension}}</td>
+                        <td>{{marketItems[1].description}}</td>
+                        <td>{{marketItems[1].total_project}}</td>
+                        <td>{{marketItems[1].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(97, 160, 168);"></td>
+                        <td>{{marketItems[2].dimension}}</td>
+                        <td>{{marketItems[2].description}}</td>
+                        <td>{{marketItems[2].total_project}}</td>
+                        <td>{{marketItems[2].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr3">
+                        <td></td>
+                        <td>{{marketItems[3].dimension}}</td>
+                        <td>{{marketItems[3].description}}</td>
+                        <td>{{marketItems[3].total_project}}</td>
+                        <td>{{marketItems[3].effective_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="col-p-right">
                   <pie :options="marketOptions"></pie>
                 </div>
               </b-row>
               <!-- 团队分析 -->
-              <div class="left-head font2 left-fen-p" name="jump3" role="anchor">
+              <div class="left-head font2 left-fen-p jump" role="anchor">
                 二. 团队分析
               </div>
               <div class="row">
@@ -158,7 +195,6 @@
               <div class="left-p left-p1 font1">
                 <p><strong>概述</strong></p><p>{{data.teamAnalysis.summary}}</p><p><strong>小结</strong></p><p>{{data.teamAnalysis.conclusion}}</p>
               </div>
-
               <div class="left-p left-p1 font1">
                 <h4 class="font1">团队评分参数
                   <span>总分：100分</span>
@@ -167,14 +203,80 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <div class="col-p-left">
-                  <b-table :items="teamItems" :fields="fields"></b-table>
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
+                      <tr class="ttr ttr1">
+                        <td></td>
+                        <td>维度</td>
+                        <td>总比分占比</td>
+                        <td>项目总分</td>
+                        <td>有效得分</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
+                        <td>{{teamItems[0].dimension}}</td>
+                        <td>{{teamItems[0].description}}</td>
+                        <td>{{teamItems[0].total_project}}</td>
+                        <td>{{teamItems[0].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(47, 69, 84);"></td>
+                        <td>{{teamItems[1].dimension}}</td>
+                        <td>{{teamItems[1].description}}</td>
+                        <td>{{teamItems[1].total_project}}</td>
+                        <td>{{teamItems[1].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(97, 160, 168);"></td>
+                        <td>{{teamItems[2].dimension}}</td>
+                        <td>{{teamItems[2].description}}</td>
+                        <td>{{teamItems[2].total_project}}</td>
+                        <td>{{teamItems[2].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(212, 130, 101);"></td>
+                        <td>{{teamItems[3].dimension}}</td>
+                        <td>{{teamItems[3].description}}</td>
+                        <td>{{teamItems[3].total_project}}</td>
+                        <td>{{teamItems[3].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(145, 199, 174);"></td>
+                        <td>{{teamItems[4].dimension}}</td>
+                        <td>{{teamItems[4].description}}</td>
+                        <td>{{teamItems[4].total_project}}</td>
+                        <td>{{teamItems[4].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(116, 159, 131);"></td>
+                        <td>{{teamItems[5].dimension}}</td>
+                        <td>{{teamItems[5].description}}</td>
+                        <td>{{teamItems[5].total_project}}</td>
+                        <td>{{teamItems[5].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(202, 134, 34);"></td>
+                        <td>{{teamItems[6].dimension}}</td>
+                        <td>{{teamItems[6].description}}</td>
+                        <td>{{teamItems[6].total_project}}</td>
+                        <td>{{teamItems[6].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr3">
+                        <td></td>
+                        <td>{{teamItems[7].dimension}}</td>
+                        <td>{{teamItems[7].description}}</td>
+                        <td>{{teamItems[7].total_project}}</td>
+                        <td>{{teamItems[7].effective_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="col-p-right">
                   <pie :options="teamOptions"></pie>
                 </div>
               </b-row>
               <!-- 技术分析 -->
-              <div class="left-head font2 left-fen-p" name="jump4" role="anchor">
+              <div class="left-head font2 left-fen-p jump" role="anchor">
                 三. 技术分析
               </div>
               <div class="left-p left-p1 font2">
@@ -188,20 +290,85 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <div class="col-p-left">
-                  <b-table :items="techItems" :fields="fields" class="bgTable"></b-table>
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
+                      <tr class="ttr ttr1">
+                        <td></td>
+                        <td>维度</td>
+                        <td>总比分占比</td>
+                        <td>项目总分</td>
+                        <td>有效得分</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
+                        <td>{{techItems[0].dimension}}</td>
+                        <td>{{techItems[0].description}}</td>
+                        <td>{{techItems[0].total_project}}</td>
+                        <td>{{techItems[0].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(47, 69, 84);"></td>
+                        <td>{{techItems[1].dimension}}</td>
+                        <td>{{techItems[1].description}}</td>
+                        <td>{{techItems[1].total_project}}</td>
+                        <td>{{techItems[1].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(97, 160, 168);"></td>
+                        <td>{{techItems[2].dimension}}</td>
+                        <td>{{techItems[2].description}}</td>
+                        <td>{{techItems[2].total_project}}</td>
+                        <td>{{techItems[2].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(212, 130, 101);"></td>
+                        <td>{{techItems[3].dimension}}</td>
+                        <td>{{techItems[3].description}}</td>
+                        <td>{{techItems[3].total_project}}</td>
+                        <td>{{techItems[3].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(145, 199, 174);"></td>
+                        <td>{{techItems[4].dimension}}</td>
+                        <td>{{techItems[4].description}}</td>
+                        <td>{{techItems[4].total_project}}</td>
+                        <td>{{techItems[4].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(116, 159, 131);"></td>
+                        <td>{{techItems[5].dimension}}</td>
+                        <td>{{techItems[5].description}}</td>
+                        <td>{{techItems[5].total_project}}</td>
+                        <td>{{techItems[5].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(202, 134, 34);"></td>
+                        <td>{{techItems[6].dimension}}</td>
+                        <td>{{techItems[6].description}}</td>
+                        <td>{{techItems[6].total_project}}</td>
+                        <td>{{techItems[6].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr3">
+                        <td></td>
+                        <td>{{techItems[7].dimension}}</td>
+                        <td>{{techItems[7].description}}</td>
+                        <td>{{techItems[7].total_project}}</td>
+                        <td>{{techItems[7].effective_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="col-p-right">
                   <pie :options="techOptions"></pie>
                 </div>
               </b-row>
               <!-- 资金监管分析 -->
-              <div class="left-head font2 left-fen-p" name="jump5" role="anchor">
+              <div class="left-head font2 left-fen-p jump" role="anchor">
                 四. 资金监管分析
               </div>
               <div class="left-p left-p1 font2">
                 <p><strong>概述&nbsp;&nbsp;&nbsp;&nbsp;</strong></p><p>{{data.superviseAnalysis.summary}}</p><p><br></p>
               </div>
-
               <div class="left-p left-p1 font1">
                 <h4 class="font1">资金监管评分参数
                   <span>总分：100分</span>
@@ -210,20 +377,50 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <div class="col-p-left">
-                  <b-table :items="superviseItems" :fields="fields"></b-table>
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
+                      <tr class="ttr ttr1">
+                        <td></td>
+                        <td>维度</td>
+                        <td>总比分占比</td>
+                        <td>项目总分</td>
+                        <td>有效得分</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
+                        <td>{{superviseItems[0].dimension}}</td>
+                        <td>{{superviseItems[0].description}}</td>
+                        <td>{{superviseItems[0].total_project}}</td>
+                        <td>{{superviseItems[0].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(47, 69, 84);"></td>
+                        <td>{{superviseItems[1].dimension}}</td>
+                        <td>{{superviseItems[1].description}}</td>
+                        <td>{{superviseItems[1].total_project}}</td>
+                        <td>{{superviseItems[1].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr3">
+                        <td></td>
+                        <td>{{superviseItems[2].dimension}}</td>
+                        <td>{{superviseItems[2].description}}</td>
+                        <td>{{superviseItems[2].total_project}}</td>
+                        <td>{{superviseItems[2].effective_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="col-p-right">
                   <pie :options="superviseOptions"></pie>
                 </div>
               </b-row>
               <!-- 盈利模式分析 -->
-              <div class="left-head font2 left-fen-p" name="jump6" role="anchor">
+              <div class="left-head font2 left-fen-p jump" role="anchor">
                 五. 盈利模式分析
               </div>
               <div class="left-p left-p1 font2">
                 <p><strong>概述</strong></p><p>{{data.profitAnalysis.summary}}</p><p><br></p>
               </div>
-
               <div class="left-p left-p1 font1">
                 <h4 class="font1">盈利模式评分参数
                   <span>总分：100分</span>
@@ -232,7 +429,31 @@
               </div>
               <b-row class="left-p left-p2 row">
                 <div class="col-p-left">
-                  <b-table :items="profitItems" :fields="fields"></b-table>
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
+                      <tr class="ttr ttr1">
+                        <td></td>
+                        <td>维度</td>
+                        <td>总比分占比</td>
+                        <td>项目总分</td>
+                        <td>有效得分</td>
+                      </tr>
+                      <tr class="ttr ttr2">
+                        <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
+                        <td>{{profitItems[0].dimension}}</td>
+                        <td>{{profitItems[0].description}}</td>
+                        <td>{{profitItems[0].total_project}}</td>
+                        <td>{{profitItems[0].effective_score}}</td>
+                      </tr>
+                      <tr class="ttr ttr3">
+                        <td></td>
+                        <td>{{profitItems[1].dimension}}</td>
+                        <td>{{profitItems[1].description}}</td>
+                        <td>{{profitItems[1].total_project}}</td>
+                        <td>{{profitItems[1].effective_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="col-p-right">
                   <pie :options="profitOptions"></pie>
@@ -246,56 +467,58 @@
               <p class="zy-p2 font1">{{data.projectOverview.rating}}</p>
               <div class="left-p left-p2">
                 <table class="font2 bi-ge zy-bg">
-                  <tbody><tr class="ttr ttr1">
-                    <td></td>
-                    <td>维度</td>
-                    <td>总比分占比</td>
-                    <td>项目总分</td>
-                    <td>有效得分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #36BBD2;"></td>
-                    <td>市场评分</td>
-                    <td>20%</td>
-                    <td>{{marketItems[3].effective_score}}</td>
-                    <td>{{score.marketScore }} 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #3D586A;"></td>
-                    <td>团队评分</td>
-                    <td>30%</td>
-                    <td>{{teamItems[7].effective_score}}</td>
-                    <td>{{score.teamScore }} 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #85C225;"></td>
-                    <td>技术评分</td>
-                    <td>30%</td>
-                    <td>{{techItems[7].effective_score}}</td>
-                    <td>{{score.techScore }} 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #EC6908;"></td>
-                    <td>盈利模式评分</td>
-                    <td>10%</td>
-                    <td>{{superviseItems[2].effective_score}}</td>
-                    <td>{{score.superviseScore}} 分</td>
-                  </tr>
-                  <tr class="ttr ttr2">
-                    <td style="width: 10px;background-color: #D6B3D4;"></td>
-                    <td>资金管监管评分</td>
-                    <td>10%</td>
-                    <td>{{profitItems[1].effective_score}}</td>
-                    <td>{{score.profitScore}} 分</td>
-                  </tr>
-                  <tr class="ttr ttr3">
-                    <td></td>
-                    <td>总计</td>
-                    <td></td>
-                    <td></td>
-                    <td>{{score.totalScore}} 分</td>
-                  </tr>
-                  </tbody></table>
+                  <tbody>
+                    <tr class="ttr ttr1">
+                      <td></td>
+                      <td>维度</td>
+                      <td>总比分占比</td>
+                      <td>项目总分</td>
+                      <td>有效得分</td>
+                    </tr>
+                    <tr class="ttr ttr2">
+                      <td style="width: 10px;background-color: #36BBD2;"></td>
+                      <td>市场评分</td>
+                      <td>20%</td>
+                      <td>{{marketItems[3].effective_score}}</td>
+                      <td>{{score.marketScore }} 分</td>
+                    </tr>
+                    <tr class="ttr ttr2">
+                      <td style="width: 10px;background-color: #3D586A;"></td>
+                      <td>团队评分</td>
+                      <td>30%</td>
+                      <td>{{teamItems[7].effective_score}}</td>
+                      <td>{{score.teamScore }} 分</td>
+                    </tr>
+                    <tr class="ttr ttr2">
+                      <td style="width: 10px;background-color: #85C225;"></td>
+                      <td>技术评分</td>
+                      <td>30%</td>
+                      <td>{{techItems[7].effective_score}}</td>
+                      <td>{{score.techScore }} 分</td>
+                    </tr>
+                    <tr class="ttr ttr2">
+                      <td style="width: 10px;background-color: #EC6908;"></td>
+                      <td>盈利模式评分</td>
+                      <td>10%</td>
+                      <td>{{superviseItems[2].effective_score}}</td>
+                      <td>{{score.superviseScore}} 分</td>
+                    </tr>
+                    <tr class="ttr ttr2">
+                      <td style="width: 10px;background-color: #D6B3D4;"></td>
+                      <td>资金管监管评分</td>
+                      <td>10%</td>
+                      <td>{{profitItems[1].effective_score}}</td>
+                      <td>{{score.profitScore}} 分</td>
+                    </tr>
+                    <tr class="ttr ttr3">
+                      <td></td>
+                      <td>总计</td>
+                      <td></td>
+                      <td></td>
+                      <td>{{score.totalScore}} 分</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               <table class="table table-striped font2">
                 <tbody><tr>
@@ -416,7 +639,7 @@
                 官网直投
               </div>
               <p class="zhi-time-p">
-                于 2017年11月30日21时00分 结束
+                于 {{data.projectOverview.overTime}} 结束
               </p>
               <a href="https://genaro.network" target="_blank" class="btn can-btns
                                                                              btn-hui
@@ -593,7 +816,7 @@
           series: [
             {
               type: 'pie',
-              radius: [25, 90],
+              radius: [20, 110],
               center: ['25%', '50%'],
               roseType: 'radius',
               label: {
@@ -636,7 +859,7 @@
           series: [
             {
               type: 'pie',
-              radius: [25, 90],
+              radius: [20, 110],
               center: ['25%', '50%'],
               roseType: 'radius',
               label: {
@@ -742,23 +965,6 @@
             }
           ]
         },
-        fields: {
-          '': {
-            label: ''
-          },
-          dimension: {
-            label: '维度'
-          },
-          description: {
-            label: '说明'
-          },
-          total_project: {
-            label: '项目总分'
-          },
-          effective_score: {
-            label: '有效得分'
-          }
-        },
         sum: {
           market_sum: 0,
           team_sum: 0,
@@ -820,6 +1026,12 @@
             effective_score: ''
           },
           {
+            dimension: '运营团队经验',
+            description: '',
+            total_project: '20分',
+            effective_score: ''
+          },
+          {
             dimension: '运营团队实力',
             description: '',
             total_project: '15分',
@@ -835,12 +1047,6 @@
             dimension: '投资人',
             description: '',
             total_project: '10分',
-            effective_score: ''
-          },
-          {
-            dimension: '技术团队完整性',
-            description: '',
-            total_project: '20分',
             effective_score: ''
           },
           {
@@ -988,6 +1194,10 @@
     created () {
       this._getDetail()
     },
+    updated () {
+      this.up()
+      this.move()
+    },
     computed: {
       ...mapGetters([
         'project'
@@ -1056,14 +1266,16 @@
           this.score.totalScore += parseFloat(this.score.superviseScore)
           this.score.totalScore += parseFloat(this.score.profitScore)
         })
-      }
-      /* up: function () {
-        let nav = document.getElementById('nav')
-        let scroll = document.documentElement
+      },
+      up: function () {
+        let nav = document.getElementById('topContainer')
+        let scroll = document.documentElement || document.body
         let top = nav.offsetTop
         let hei = nav.offsetHeight
-        let li = document.getElementsByClassName('nav-item')
-        window.onscroll = function () {
+        let li = document.getElementsByClassName('nav-to')
+        let a = document.getElementsByClassName('nav-a')
+        let jump = document.getElementsByClassName('jump')
+        window.addEventListener('scroll', function () {
           if (scroll.scrollTop >= top) {
             nav.className = 'fix'
           }
@@ -1071,15 +1283,50 @@
             nav.className = ''
           }
           for (let i = 0; i < li.length; i++) {
-            if (scroll.scrollTop + hei >= li[i].offsetTop - top / 1.1) {
-              for (let j = 0; j < li.length; j++) {
-                li[j].className = ''
+            if (scroll.scrollTop + hei >= jump[i].offsetTop - top / 1.1) {
+              for (let j = 0; j < a.length; j++) {
+                a[j].className = 'nav-a'
               }
-              li[i].className = 'cur'
+              a[i].className = 'nav-a cur'
             }
           }
+        })
+      },
+      move: function () {
+        let nav = document.getElementById('topContainer')
+        let scroll = document.documentElement || document.body
+        let hei = nav.offsetHeight
+        let li = document.getElementsByClassName('nav-to')
+        let a = document.getElementsByClassName('nav-a')
+        let jump = document.getElementsByClassName('jump')
+        for (let i = 0; i < li.length; i++) {
+          let timer
+          li[i].index = i
+          li[i].onclick = function () {
+            let self = this
+            clearInterval(timer)
+            timer = setInterval(function () {
+              if (scroll.scrollTop + hei <= jump[self.index].offsetTop) {
+                scroll.scrollTop += Math.ceil(jump[self.index].offsetTop / 10)
+                if (scroll.scrollTop + hei >= jump[self.index].offsetTop) {
+                  scroll.scrollTop = jump[self.index].offsetTop - hei
+                  clearInterval(timer)
+                }
+              } else {
+                scroll.scrollTop /= 1.1
+                if (scroll.scrollTop + hei <= jump[self.index].offsetTop) {
+                  scroll.scrollTop = jump[self.index].offsetTop - hei
+                  clearInterval(timer)
+                }
+              }
+              for (let j = 0; j < a.length; j++) {
+                a[j].className = 'nav-a'
+              }
+              a[i].className = 'nav-a cur'
+            }, 20)
+          }
         }
-      } */
+      }
     }
   }
 </script>
@@ -1119,6 +1366,14 @@
             font-weight: bold;
             vertical-align: middle;
             margin-left: 20px;
+          .fix
+            position fixed
+            top 0px
+            left: 0px
+            width 100%
+            height 49px
+            background-color #443C4D;
+            z-index 100
           #topContainer
             height: 50px;
             overflow: hidden;
@@ -1134,15 +1389,15 @@
                 li
                   float: left;
                   padding: 0px 30px;
-                  height: 50px;
-                  line-height: 50px;
+                  height: 49px;
+                  line-height: 49px;
                   background-color: #443c4d;
                   a
                     padding: 14px 0px 13.8px;
                     color: #fff;
                     font-size: 14px;
                     text-decoration none
-                  a.a-active
+                  a.cur
                     color: #00CC95;
                     font-weight: bold;
                     border-bottom: 3px solid #00CC95;
@@ -1168,7 +1423,6 @@
               color: #fff;
               margin-top: 0px;
               margin-left: 35px;
-
     .content-fluid
       height: auto;
       margin-top: 20px;
@@ -1198,6 +1452,42 @@
                 line-height: 50px;
               .left-p
                 margin: 30px 0px;
+                .col-p-left,.col-p-right
+                  table
+                    margin-left: 0px;
+                    border: 1px solid #e2e2e2;
+                    tr
+                      border-bottom: 1px solid #e2e2e2;
+                      td
+                        height: 50px;
+                        font-size: 14px;
+                        vertical-align: middle;
+                      td:nth-child(2)
+                        width: 20%;
+                        padding-left: 10px;
+                        color: #393939;
+                      td:nth-child(3)
+                        width: 45%;
+                        padding-left: 20px;
+                        padding-right: 10px;
+                        color: #393939;
+                    tr.ttr1, tr.ttr2
+                      td:nth-child(4)
+                        font-weight: bold;
+                        text-align: center;
+                    tr.ttr1, tr.ttr2
+                      td:nth-child(5)
+                        font-weight: bold;
+                        text-align: center;
+                    tr.ttr3
+                      td:nth-child(4)
+                        font-weight: bold;
+                        text-align: center;
+                      td:nth-child(5)
+                        font-size: 20px;
+                        color: #36BBD2;
+                        font-weight: bold;
+                        text-align: center;
                 .left-span
                   display: inline-block;
                   font-size: 14px;

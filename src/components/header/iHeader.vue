@@ -12,10 +12,10 @@
               <b-nav-item right to="/">
                 首页
               </b-nav-item>
-              <b-nav-item right to="doing">
+              <b-nav-item right to="/doing">
                 ICO日程表
               </b-nav-item>
-              <b-nav-item right to="">
+              <b-nav-item right to="/info">
                 推出你的ICO
               </b-nav-item>
             </b-navbar-nav>
