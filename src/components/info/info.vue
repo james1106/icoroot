@@ -407,110 +407,110 @@
       return {
         marketItems: [
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: ''
+            effective_score: 0
           }
         ],
         teamItems: [
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           }
         ],
         techItems: [
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           }
         ],
         superviseItems: [
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           }
         ],
         profitItems: [
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           },
           {
-            effective_score: '',
+            effective_score: 0,
             description: ''
           }
         ],
@@ -525,7 +525,7 @@
             projectIntroduction: '',
             projectName: '',
             prospectusUpperlimit: '',
-            rating: '',
+            rating: 0,
             tokenAccept: '',
             tokenTotal: '',
             tokenType: ''
@@ -592,7 +592,11 @@
         this.data.techAnalysis.data = techArr.join('|')
         this.data.superviseAnalysis.data = superviseArr.join('|')
         this.data.profitAnalysis.data = profitArr.join('|')
-        this.data.projectOverview.rating = parseInt(this.marketItems[3].effective_score) * 0.2 + parseInt(this.teamItems[3].effective_score) * 0.3 + parseInt(this.techItems[3].effective_score) * 0.3 + parseInt(this.superviseItems[3].effective_score) * 0.1 + parseInt(this.profitItems[3].effective_score) * 0.1
+        this.data.projectOverview.rating += (parseFloat(this.marketItems[3].effective_score) * 0.2).toFixed(1)
+        this.data.projectOverview.rating += (parseFloat(this.teamItems[3].effective_score) * 0.3).toFixed(1)
+        this.data.projectOverview.rating += (parseFloat(this.techItems[3].effective_score) * 0.3).toFixed(1)
+        this.data.projectOverview.rating += (parseFloat(this.superviseItems[3].effective_score) * 0.1)
+        this.data.projectOverview.rating += (parseFloat(this.profitItems[3].effective_score) * 0.1).toFixed(1)
         api.writeInfo(JSON.stringify(this.data)).then(() => {
           alert('提交成功')
         })

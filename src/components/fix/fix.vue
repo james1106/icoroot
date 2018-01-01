@@ -1,5 +1,5 @@
 <template>
-  <div class="fix">
+  <div class="fixed">
     <div class="chat icon-message-square" @click="showChat = !showChat" ref="chat"></div>
     <div class="chat-box" v-show="showChat">
       <p class="chat-title-p" id="chatMove" style="cursor:move;" draggable="true">

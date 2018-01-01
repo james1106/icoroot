@@ -466,8 +466,9 @@
               <p class="zy-p1 font1">总分： 100分</p>
               <p class="zy-p2 font1">{{data.projectOverview.rating}}</p>
               <div class="left-p left-p2">
-                <table class="font2 bi-ge zy-bg">
-                  <tbody>
+                <div class="col-p-container">
+                  <table class="font2 bi-ge zy-bg">
+                    <tbody>
                     <tr class="ttr ttr1">
                       <td></td>
                       <td>维度</td>
@@ -476,35 +477,35 @@
                       <td>有效得分</td>
                     </tr>
                     <tr class="ttr ttr2">
-                      <td style="width: 10px;background-color: #36BBD2;"></td>
+                      <td style="width: 10px;background-color: rgb(194, 53, 49);"></td>
                       <td>市场评分</td>
                       <td>20%</td>
                       <td>{{marketItems[3].effective_score}}</td>
                       <td>{{score.marketScore }} 分</td>
                     </tr>
                     <tr class="ttr ttr2">
-                      <td style="width: 10px;background-color: #3D586A;"></td>
+                      <td style="width: 10px;background-color: rgb(47, 69, 84);"></td>
                       <td>团队评分</td>
                       <td>30%</td>
                       <td>{{teamItems[7].effective_score}}</td>
                       <td>{{score.teamScore }} 分</td>
                     </tr>
                     <tr class="ttr ttr2">
-                      <td style="width: 10px;background-color: #85C225;"></td>
+                      <td style="width: 10px;background-color: rgb(97, 160, 168);"></td>
                       <td>技术评分</td>
                       <td>30%</td>
                       <td>{{techItems[7].effective_score}}</td>
                       <td>{{score.techScore }} 分</td>
                     </tr>
                     <tr class="ttr ttr2">
-                      <td style="width: 10px;background-color: #EC6908;"></td>
+                      <td style="width: 10px;background-color: rgb(212, 130, 101);"></td>
                       <td>盈利模式评分</td>
                       <td>10%</td>
                       <td>{{superviseItems[2].effective_score}}</td>
                       <td>{{score.superviseScore}} 分</td>
                     </tr>
                     <tr class="ttr ttr2">
-                      <td style="width: 10px;background-color: #D6B3D4;"></td>
+                      <td style="width: 10px;background-color: rgb(145, 199, 174);"></td>
                       <td>资金管监管评分</td>
                       <td>10%</td>
                       <td>{{profitItems[1].effective_score}}</td>
@@ -517,8 +518,9 @@
                       <td></td>
                       <td>{{score.totalScore}} 分</td>
                     </tr>
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <table class="table table-striped font2">
                 <tbody><tr>
@@ -973,12 +975,12 @@
           profit_sum: 0
         },
         score: {
-          marketScore: '',
-          teamScore: '',
-          techScore: '',
-          superviseScore: '',
-          profitScore: '',
-          totalScore: ''
+          marketScore: 0,
+          teamScore: 0,
+          techScore: 0,
+          superviseScore: 0,
+          profitScore: 0,
+          totalScore: 0
         },
         marketItems: [
           {
@@ -1255,11 +1257,11 @@
           this.techItems[this.techItems.length - 1].effective_score = this.sum.tech_sum + '分'
           this.superviseItems[this.superviseItems.length - 1].effective_score = this.sum.supervise_sum + '分'
           this.profitItems[this.profitItems.length - 1].effective_score = this.sum.profit_sum + '分'
-          this.score.marketScore = parseInt(this.marketItems[3].effective_score) * 0.2
-          this.score.teamScore = parseInt(this.teamItems[7].effective_score) * 0.3
-          this.score.techScore = parseInt(this.techItems[7].effective_score) * 0.3
-          this.score.superviseScore = parseInt(this.superviseItems[2].effective_score) * 0.1
-          this.score.profitScore = parseInt(this.profitItems[1].effective_score) * 0.1
+          this.score.marketScore = (parseInt(this.marketItems[3].effective_score) * 0.2).toFixed(1)
+          this.score.teamScore = (parseInt(this.teamItems[7].effective_score) * 0.3).toFixed(1)
+          this.score.techScore = (parseInt(this.techItems[7].effective_score) * 0.3).toFixed(1)
+          this.score.superviseScore = (parseInt(this.superviseItems[2].effective_score) * 0.1).toFixed(1)
+          this.score.profitScore = (parseInt(this.profitItems[1].effective_score) * 0.1).toFixed(1)
           this.score.totalScore += parseFloat(this.score.marketScore)
           this.score.totalScore += parseFloat(this.score.teamScore)
           this.score.totalScore += parseFloat(this.score.techScore)
@@ -1332,6 +1334,92 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @media (max-width: 991px) and (min-width: 768px)
+    .box-bige
+      .container-fluid
+        .container
+          width: 100%
+          #topContainer
+            #topStickyNav
+              .box-sm-bottom
+                li
+                  padding: 0px 12px;
+                  a
+                    padding: 13px 0px 13px;
+      .content-fluid
+        .row
+          .col-left
+            .left-cont
+              .left-p
+                .left-span
+                  margin-bottom: 10px;
+                .right-span
+                  padding-left: 0px;
+                  font-size: 14px;
+  @media (min-width: 768px)
+    .col-p-left
+      width: 100%;
+    .col-p-right
+      width: 100%
+    .col-left
+      width: 100%;
+    .col-right
+      width: 100%;
+    .fix
+      position fixed
+      top 0px
+      left: 0px
+      width 100%
+      height 49px
+      background-color #443C4D;
+      z-index 100
+      #topStickyNav
+        width 720px
+        margin: 0 auto
+  @media (min-width: 992px)
+    .col-p-left
+      width: 100%;
+    .col-p-right
+      width: 100%
+    .col-left
+      width: 100%;
+    .col-right
+      width: 100%;
+    .fix
+      position fixed
+      top 0px
+      left: 0px
+      width 100%
+      height 49px
+      background-color #443C4D;
+      z-index 100
+      #topStickyNav
+        width 960px
+        margin: 0 auto
+  @media (min-width: 1200px)
+    .col-p-left
+      width: 66.666667%
+      float: left
+    .col-p-right
+      width: 33.333333%
+      float: left
+    .col-left
+      width: 75%;
+      float left
+    .col-right
+      width: 25%;
+      float left
+    .fix
+      position fixed
+      top 0px
+      left: 0px
+      width 100%
+      height 49px
+      background-color #443C4D;
+      z-index 100
+      #topStickyNav
+        width 1140px
+        margin: 0 auto
   .box-bige
     min-height: 100%;
     .title-box
@@ -1366,14 +1454,6 @@
             font-weight: bold;
             vertical-align: middle;
             margin-left: 20px;
-          .fix
-            position fixed
-            top 0px
-            left: 0px
-            width 100%
-            height 49px
-            background-color #443C4D;
-            z-index 100
           #topContainer
             height: 50px;
             overflow: hidden;
@@ -1382,7 +1462,7 @@
               overflow-x: scroll;
               height: 70px;
               .box-sm-bottom
-                width: 100%;
+                width 100%
                 height: 49px;
                 background-color: #443C4D;
                 border-radius: 5px 5px 0px 0px;
@@ -1452,7 +1532,7 @@
                 line-height: 50px;
               .left-p
                 margin: 30px 0px;
-                .col-p-left,.col-p-right
+                .col-p-left,.col-p-right,.col-p-container
                   table
                     margin-left: 0px;
                     border: 1px solid #e2e2e2;
@@ -1527,16 +1607,6 @@
                     font-weight: bold;
                     line-height: 60px;
               .left-p
-                margin: 30px 0px;
-                div
-                  table
-                    tbody
-                      tr.tab-tr
-                        td
-                          font-weight bold
-                      tr.active
-                        td
-                          background-color #f5f5f5
                 .left-span
                   display: inline-block;
                   font-size: 14px;
@@ -1567,6 +1637,19 @@
                   span:nth-child(1)
                     padding-left: 30px;
                     padding-right: 30px;
+              .zy-p1
+                font-size: 15px;
+                font-weight: bold;
+                color: #A2A2A2;
+                margin-top: 30px;
+                line-height: 42px;
+                margin-bottom: 5px;
+              .zy-p2
+                font-size: 60px;
+                font-weight: bold;
+                line-height: 42px;
+                color: #0072E6;
+                margin-bottom: 50px;
               .left-fen-p
                 border-bottom: 1px solid #DDDDDD;
               .left-p1
@@ -1769,57 +1852,4 @@
                     margin-right: 20px;
                 p:nth-child(3)
                   margin-bottom: 20px;
-  @media (max-width: 991px) and (min-width: 768px)
-    .box-bige
-      .container-fluid
-        .container
-          width: 100%
-          #topContainer
-            #topStickyNav
-              .box-sm-bottom
-                li
-                  padding: 0px 12px;
-                  a
-                    padding: 13px 0px 13px;
-      .content-fluid
-        .row
-          .col-left
-            .left-cont
-              .left-p
-                .left-span
-                  margin-bottom: 10px;
-                .right-span
-                  padding-left: 0px;
-                  font-size: 14px;
-  @media (min-width: 768px)
-    .col-p-left
-      width: 100%;
-    .col-p-right
-      width: 100%
-    .col-left
-      width: 100%;
-    .col-right
-      width: 100%;
-  @media (min-width: 992px)
-    .col-p-left
-      width: 100%;
-    .col-p-right
-      width: 100%
-    .col-left
-      width: 100%;
-    .col-right
-      width: 100%;
-  @media (min-width: 1200px)
-    .col-p-left
-      width: 66.666667%
-      float: left
-    .col-p-right
-      width: 33.333333%
-      float: left
-    .col-left
-      width: 75%;
-      float left
-    .col-right
-      width: 25%;
-      float left
 </style>
