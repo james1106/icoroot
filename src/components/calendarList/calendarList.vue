@@ -41,34 +41,47 @@
       </li>
       <li class="list-li5">{{item.rating}}</li>
       <li class="list-li6">
-        <b-button size="sm" variant="secondary">查看详情</b-button>
+        <b-button size="sm" variant="secondary" @click="selectProject(item.id, item)">查看详情</b-button>
       </li>
     </ul>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-    export default {
-      props: {
-        items: {
-          type: Array,
-          default: ''
-        }
-      },
-      data () {
-        return {
-          li1: '项目名称/描述',
-          li2: '开始时间',
-          li3: '关闭时间',
-          li4: '相关链接',
-          li5: '项目评级',
-          li6: '项目状态',
-          images: {
-            projectLogo: require('common/images/projectLogo.png')
-          }
+  import { mapMutations } from 'vuex'
+
+  export default {
+    props: {
+      items: {
+        type: Array,
+        default: ''
+      }
+    },
+    data () {
+      return {
+        li1: '项目名称/描述',
+        li2: '开始时间',
+        li3: '关闭时间',
+        li4: '相关链接',
+        li5: '项目评级',
+        li6: '项目状态',
+        images: {
+          projectLogo: require('common/images/projectLogo.png')
         }
       }
+    },
+    methods: {
+      selectProject (id, item) {
+        this.setProject(item)
+        this.$router.push({
+          path: `/project/${id}`
+        })
+      },
+      ...mapMutations({
+        setProject: 'SET_PROJECT'
+      })
     }
+  }
 </script>
 
 <style lang="stylus" type="text/stylus">
