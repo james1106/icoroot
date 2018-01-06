@@ -37,5 +37,8 @@ export default {
   },
   getEnded: function () {
     return Vue.axios.get('/over/project')
+  },
+  deleteProject: function (id) {
+    return Vue.axios.post('/delete', id)
   }
 }

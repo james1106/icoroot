@@ -5,10 +5,14 @@ import Project from '@/components/project/project'
 import ProjectDetail from '@/components/project-detail/project-detail'
 import Homepage from '@/components/homepage/homepage'
 import Calendar from '@/components/calendar/calendar'
+import Manage from '@/components/manage/manage'
 import Launch from '@/components/launch/launch'
 import Begin from '@/components/calendar/begin/begin'
 import Doing from '@/components/calendar/doing/doing'
 import Ended from '@/components/calendar/ended/ended'
+import Ready from '@/components/manage/ready/ready'
+import Running from '@/components/manage/running/running'
+import Over from '@/components/manage/over/over'
 import Login from '@/components/login/login'
 import Register from '@/components/register/register'
 import Info from '@/components/info/info'
@@ -53,6 +57,25 @@ export default new Router({
         {
           path: '/doing',
           component: Doing
+        }
+      ]
+    },
+    {
+      path: '/manage',
+      name: 'manage',
+      component: Manage,
+      children: [
+        {
+          path: '/ready',
+          component: Ready
+        },
+        {
+          path: '/running',
+          component: Running
+        },
+        {
+          path: '/over',
+          component: Over
         }
       ]
     },
