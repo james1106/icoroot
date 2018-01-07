@@ -1,5 +1,6 @@
 const state = {
-  project: {}
+  project: {},
+  modifyProject: {}
 }
 
 export default state

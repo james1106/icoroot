@@ -7,6 +7,9 @@ import * as types from './mutation-types'
 const matutaions = {
   [types.SET_PROJECT] (state, project) {
     state.project = project
+  },
+  [types.MODIFY_PROJECT] (state, project) {
+    state.modifyProject = project
   }
 }
 

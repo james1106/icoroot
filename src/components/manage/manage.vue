@@ -25,7 +25,7 @@
             <input type="text">
             <span class="search-button">搜索</span>
           </div>
-          <span class="add-button"><router-link to="/info">添加新项目</router-link></span>
+          <span class="add-button"><router-link to="/addPro">添加新项目</router-link></span>
         </div>
         <router-view to="/ready"></router-view>
       </div>
@@ -41,6 +41,7 @@
   export default {
     data () {
       return {
+        isActive: false,
         img: require('common/images/logo.svg')
       }
     },
@@ -88,7 +89,7 @@
               width 100%
               text-decoration: none
               color #000
-            a.active
+            .router-link-active
               background-color #edeeef
           li:nth-of-type(1)
             height 180px

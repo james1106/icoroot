@@ -3,8 +3,8 @@
     <div class="project-overview">
       <p class="title">一、项目概况</p>
       <div class="item">
-        <label for="name">项目名称</label>
-        <input type="text" v-model="data.projectOverview.projectName" id="name">
+        <span>项目名称</span>
+        <span>{{data.projectOverview.projectName}}</span>
       </div>
       <div class="item">
         <label for="intr">项目介绍</label>
@@ -17,51 +17,51 @@
       <div class="item">
         <label for="end">众筹开始时间</label>
         <input type="text" v-model="data.projectOverview.overTime" id="end" placeholder="YYYY-MM-DD hh:mm:ss格式">
-      </div>
-      <div class="item">
-        <div class="title">项目发行基本信息</div>
-        <table class="table-item">
-          <tr>
-            <td>ICO总量</td>
-            <td>代币总量</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="text" v-model="data.projectOverview.iocTotal">
-            </td>
-            <td>
-              <input type="text" v-model="data.projectOverview.tokenTotal">
-            </td>
-          </tr>
-          <tr>
-            <td>募资上限</td>
-            <td>接受币种</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="text" v-model="data.projectOverview.prospectusUpperlimit">
-            </td>
-            <td>
-              <input type="text" v-model="data.projectOverview.tokenAccept">
-            </td>
-          </tr>
-          <tr>
-            <td>代币类型</td>
-            <td>官网</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="text" v-model="data.projectOverview.tokenType">
-            </td>
-            <td>
-              <input type="text" v-model="data.projectOverview.officialWebsite">
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="item">
-        <label for="desc">项目说明</label>
-        <textarea type="text" v-model="data.projectOverview.projectDescription" id="desc"></textarea>
+        <div class="item">
+          <div class="title">项目发行基本信息</div>
+          <table class="table-item">
+            <tr>
+              <td>ICO总量</td>
+              <td>代币总量</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" v-model="data.projectOverview.iocTotal">
+              </td>
+              <td>
+                <input type="text" v-model="data.projectOverview.tokenTotal">
+              </td>
+            </tr>
+            <tr>
+              <td>募资上限</td>
+              <td>接受币种</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" v-model="data.projectOverview.prospectusUpperlimit">
+              </td>
+              <td>
+                <input type="text" v-model="data.projectOverview.tokenAccept">
+              </td>
+            </tr>
+            <tr>
+              <td>代币类型</td>
+              <td>官网</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" v-model="data.projectOverview.tokenType">
+              </td>
+              <td>
+                <input type="text" v-model="data.projectOverview.officialWebsite">
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="item">
+          <label for="desc">项目说明</label>
+          <textarea type="text" v-model="data.projectOverview.projectDescription" id="desc"></textarea>
+        </div>
       </div>
     </div>
     <div class="market-analysis">
@@ -401,6 +401,7 @@
 
 <script>
   import api from '../../api/index'
+  import { mapGetters } from 'vuex'
 
   export default {
     data () {
@@ -565,7 +566,18 @@
         }
       }
     },
+    computed: {
+      ...mapGetters([
+        'modifyProject'
+      ])
+    },
+    mounted () {
+      this.setName()
+    },
     methods: {
+      setName () {
+        this.data.projectOverview.projectName = this.modifyProject.projectName
+      },
       submitData () {
         let marketArr = []
         let teamArr = []
@@ -597,7 +609,7 @@
         this.data.projectOverview.rating += (parseFloat(this.techItems[3].effective_score) * 0.3).toFixed(1)
         this.data.projectOverview.rating += (parseFloat(this.superviseItems[3].effective_score) * 0.1)
         this.data.projectOverview.rating += (parseFloat(this.profitItems[3].effective_score) * 0.1).toFixed(1)
-        api.writeInfo(JSON.stringify(this.data)).then(() => {
+        api.modifyInfo(JSON.stringify(this.data)).then(() => {
           alert('提交成功')
         })
       }

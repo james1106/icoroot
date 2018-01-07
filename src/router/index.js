@@ -15,7 +15,8 @@ import Running from '@/components/manage/running/running'
 import Over from '@/components/manage/over/over'
 import Login from '@/components/login/login'
 import Register from '@/components/register/register'
-import Info from '@/components/info/info'
+import AddPro from '@/components/manage/addPro'
+import ModifyPro from '@/components/manage/modifyPro'
 import Error from '@/components/error/error'
 
 Vue.use(Router)
@@ -33,9 +34,14 @@ export default new Router({
       component: Project
     },
     {
-      path: '/info',
-      name: 'info',
-      component: Info
+      path: '/addPro',
+      name: 'addPro',
+      component: AddPro
+    },
+    {
+      path: '/modifyPro',
+      name: 'modifyPro',
+      component: ModifyPro
     },
     {
       path: '/project/:id',

@@ -25,7 +25,7 @@
         </div>
       </li>
       <li>
-        <b-button size="sm" @click="selectProject(item.id, item)">修改项目</b-button>
+        <b-button size="sm" @click="modifyProject(item)">修改项目</b-button>
       </li>
       <li>
         <b-button size="sm" @click="deleteProject(item.id)">删除项目</b-button>
@@ -65,10 +65,24 @@
         })
       },
       deleteProject (id) {
-        api.deleteProject(id)
+        api.deleteProject(id).then(() => {
+          this.$router.push({
+            path: '/manage'
+          })
+            .catch(() => {
+              alert('删除操作错误')
+            })
+        })
+      },
+      modifyProject (item) {
+        this.modifyProject(item)
+        this.$router.push({
+          path: '/modifyPro'
+        })
       },
       ...mapMutations({
-        setProject: 'SET_PROJECT'
+        setProject: 'SET_PROJECT',
+        modifyProject: 'MODIFY_PROJECT'
       })
     }
   }

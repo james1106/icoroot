@@ -29,6 +29,9 @@ export default {
   writeInfo: function (data) {
     return Vue.axios.post('/projectPut', data)
   },
+  modifyInfo: function (data) {
+    return Vue.axios.post('/projectModify', data)
+  },
   getBegin: function () {
     return Vue.axios.get('/ready/project')
   },
@@ -39,6 +42,6 @@ export default {
     return Vue.axios.get('/over/project')
   },
   deleteProject: function (id) {
-    return Vue.axios.post('/delete', id)
+    return Vue.axios.post('/projectDelete', id)
   }
 }

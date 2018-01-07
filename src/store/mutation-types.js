@@ -2,3 +2,5 @@
 // 存储 mutation 相关的常量
 
 export const SET_PROJECT = 'SET_PROJECT'
+
+export const MODIFY_PROJECT = 'MODIFY_PROJECT'
